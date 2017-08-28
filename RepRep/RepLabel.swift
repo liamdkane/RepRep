@@ -9,11 +9,24 @@
 import UIKit
 
 class RepLabel: UILabel {
+
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    enum LabelType {
+        case main, detail
+    }
+    
+    init(type: LabelType) {
+        super.init(frame: .zero)
         textAlignment = .center
         numberOfLines = 0
+        minimumScaleFactor = 0.5
+        
+        switch type {
+        case .main:
+            textColor = UIColor.black
+        case .detail:
+            textColor = UIColor.repGrey
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

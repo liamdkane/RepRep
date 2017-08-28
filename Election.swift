@@ -14,7 +14,7 @@ class Election  {
     let date: String
     let ocdDivisionID: String
     
-    init (id: String, name: String, date: String, ocdDivisionID: String) {
+    init(id: String, name: String, date: String, ocdDivisionID: String) {
         self.id = id
         self.name = name
         self.date = date

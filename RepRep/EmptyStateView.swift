@@ -8,18 +8,28 @@
 
 import UIKit
 import SnapKit
+
+struct UIConstants {
+    static let innerBorderInset = 24
+    static let outerBorderInset = 44
+
+}
+
 class EmptyStateView: UIView {
     
-    private var instructionsContainerView: UIView = UIView()
-    private var instructionsLabel = RepLabel()
+    private var instructionsContainerView = RepRepContainerView()
+    private var instructionsLabel = RepLabel(type: .main)
+    private var reminderLabel = RepLabel(type: .detail)
     private var iconImageView = UIImageView(image: #imageLiteral(resourceName: "buildingPhone"))
     
     private let starSize = 32
     private let starSpacing: CGFloat = 6
     private let labelScale = 0.7
-    private let borderInset = 24
+    private let innerBorderInset = 24
+    private let outerBorderInset = 44
     
     private let instructionsText = "Please press the search icon and enter your zipcode to find information on representatives in your area."
+    
     private let reminderText = "Feel free to set a default location to not see this prompt again."
     
     override init(frame: CGRect) {
@@ -34,32 +44,39 @@ class EmptyStateView: UIView {
     
     private func populateLabel() {
         addSubview(instructionsContainerView)
-        instructionsContainerView.layer.borderWidth = 2
-        instructionsContainerView.layer.borderColor = UIColor.repRed.cgColor
 
         instructionsContainerView.addSubview(instructionsLabel)
         instructionsContainerView.addSubview(iconImageView)
-        //instructionsContainerView.addSubview(bottomStarView)
+        instructionsContainerView.addSubview(reminderLabel)
         
         instructionsLabel.text = instructionsText
+        reminderLabel.text = reminderText
     }
     
     private func configureConstraints() {
         instructionsContainerView.snp.makeConstraints { (view) in
             view.centerX.centerY.equalToSuperview()
-            view.width.height.equalToSuperview().multipliedBy(labelScale)
+            view.top.leading.trailing.equalToSuperview().inset(outerBorderInset)
+            //view..equalToSuperview().multipliedBy(labelScale)
         }
         
         iconImageView.snp.makeConstraints { (view) in
             view.centerX.equalToSuperview()
-            view.top.equalToSuperview().inset(borderInset)
+            view.top.equalToSuperview().inset(innerBorderInset)
         }
         
         instructionsLabel.snp.makeConstraints { (view) in
-            view.top.equalTo(iconImageView.snp.bottom).offset(borderInset)
-            view.leading.trailing.equalToSuperview().inset(borderInset)
+            view.top.equalTo(iconImageView.snp.bottom).offset(innerBorderInset)
+            view.leading.trailing.equalToSuperview().inset(innerBorderInset)
             
         }
+        
+        reminderLabel.snp.makeConstraints { (view) in
+            view.top.equalTo(instructionsLabel.snp.bottom).offset(innerBorderInset)
+            view.leading.trailing.equalToSuperview().inset(innerBorderInset)
+        }
+
+        
         configureStarViews()
     }
     
@@ -77,9 +94,10 @@ class EmptyStateView: UIView {
         }
         
         middleStar.snp.makeConstraints { (view) in
+            view.top.greaterThanOrEqualTo(reminderLabel.snp.bottom).offset(innerBorderInset)
             view.width.height.equalTo(starSize)
             view.centerX.equalToSuperview()
-            view.bottom.equalToSuperview().inset(borderInset)
+            view.bottom.equalToSuperview().inset(innerBorderInset)
         }
         
         leftStar.snp.makeConstraints { (view) in

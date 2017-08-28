@@ -5,7 +5,7 @@ class APIRequestManager {
     static let manager = APIRequestManager()
     private init() {}
     
-    func getRepInfo(endPoint: String, callback: @escaping (RepInfo?) -> Void) {
+    func getRepInfo(endPoint: String, callback: @escaping(RepInfo?) -> Void) {
         
         guard let myURL = URL(string: endPoint) else { return }
         let session = URLSession(configuration: .default)

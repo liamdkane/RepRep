@@ -18,13 +18,22 @@ enum TableViewState {
 
 class RepTableViewController: UIViewController {
 
-    fileprivate var searchButton: UIBarButtonItem!
-    fileprivate var searchBar: ZipSearchBar!
+    //Constants
     fileprivate let repTitle = "Representative Repository"
-    private var state: TableViewState = .empty
-    private let empty = EmptyStateView()
+    fileprivate let searchBarMinimizedLength: CGFloat = 60
+    fileprivate let searchBarExtendedLength: CGFloat = {
+        return UIScreen.main.bounds.width - 42
+    }()
     private let statusBarSize: CGFloat = 20
     private let titleFontSize: CGFloat = 20
+    
+    //Views
+    fileprivate var searchButton: UIBarButtonItem!
+    fileprivate var searchBar: ZipSearchBar!
+    private let empty = EmptyStateView()
+    private let loading = LoadingStateView()
+    
+    private var state: TableViewState = .loading
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +56,8 @@ class RepTableViewController: UIViewController {
     private func configureNavBar() {
         
         guard let navBar = navigationController?.navigationBar else { return }
+        
+        UIApplication.shared.statusBarStyle = .lightContent
         
         navBar.barTintColor = UIColor.repBlue
         let fontAttributes: [String: Any] = [NSForegroundColorAttributeName: UIColor.white,
@@ -78,9 +89,12 @@ class RepTableViewController: UIViewController {
     }
     
     private func configureLoadingView() {
-        
+        view.addSubview(loading)
+        loading.snp.makeConstraints { (view) in
+            view.top.equalToSuperview().offset(self.navigationController!.navigationBar.frame.height + statusBarSize)
+            view.bottom.leading.trailing.equalToSuperview()
+        }
     }
-    
 }
 
 
@@ -108,7 +122,7 @@ extension RepTableViewController: UISearchBarDelegate {
         searchBar.textView?.endFloatingCursor()
         
         UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0, options: [], animations: {
-            self.adjustSearchBar(width: 60)
+            self.adjustSearchBar(width: self.searchBarMinimizedLength)
         }, completion: { finished in
             self.searchBar.isHidden = true
             self.searchBar.resignFirstResponder()

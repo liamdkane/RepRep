@@ -11,6 +11,8 @@ import SnapKit
 
 //Ultimately unused, but still a part of the idea.
 
+
+/*
 class StarView: UIView {
 
     override init(frame: CGRect) {
@@ -65,3 +67,4 @@ class StarView: UIView {
     }
 
 }
+*/
