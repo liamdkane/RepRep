@@ -55,5 +55,4 @@ class Article {
         return articles
         
     }
-    
 }

@@ -12,12 +12,11 @@ class LoadingStateView: UIVisualEffectView {
 
     private let containerView = RepRepContainerView()
     private let activityIndicator = RepRepActivityIndicatorView()
-    private let loadingLabel = RepLabel(type: .main)
+    private let loadingLabel = RepRepLabel(type: .title)
     
     init() {
-        let blurView = UIBlurEffect(style: .light)
+        let blurView = UIBlurEffect(style: .regular)
         super.init(effect: blurView)
-        
         configureConstraints()
         activityIndicator.startAnimating()
         loadingLabel.text = "Loading..."
@@ -30,7 +29,7 @@ class LoadingStateView: UIVisualEffectView {
     private func configureConstraints() {
         addSubview(containerView)
         containerView.snp.makeConstraints { (view) in
-            view.top.centerX.equalToSuperview().inset(UIConstants.outerBorderInset)
+            view.top.leading.trailing.equalToSuperview().inset(UIConstants.outerBorderInset)
         }
         
         containerView.addSubview(loadingLabel)

@@ -9,32 +9,42 @@
 import UIKit
 import SnapKit
 
-enum TableViewState {
-    case empty
-    case loading
-    case populated
-}
-
-
-class RepTableViewController: UIViewController {
-
-    //Constants
+class RepRepViewController: UIViewController {
+    
+    enum TableViewState {
+        case empty
+        case loading
+        case populated
+    }
+    
+    //MARK: Constants
     fileprivate let repTitle = "Representative Repository"
     fileprivate let searchBarMinimizedLength: CGFloat = 60
     fileprivate let searchBarExtendedLength: CGFloat = {
         return UIScreen.main.bounds.width - 42
     }()
     private let statusBarSize: CGFloat = 20
-    private let titleFontSize: CGFloat = 20
     
-    //Views
+    //MARK: Views
     fileprivate var searchButton: UIBarButtonItem!
     fileprivate var searchBar: ZipSearchBar!
     private let empty = EmptyStateView()
     private let loading = LoadingStateView()
+    fileprivate let tableView = RepRepTableView()
     
-    private var state: TableViewState = .loading
+    //MARK: Properties
+    private var state: TableViewState = .empty {
+        didSet {
+            update(state)
+        }
+    }
+    fileprivate var tableViewDriver: RepRepTableViewDriver! {
+        didSet {
+            state = .populated
+        }
+    }
     
+    //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,26 +52,20 @@ class RepTableViewController: UIViewController {
         
         configureNavBar()
         configureGesture()
-        
-        switch state {
-        case .empty:
-            configureEmptyView()
-        case .loading:
-            configureLoadingView()
-        case .populated:
-            break
-        }
+        update(state)
     }
     
+    
+    //MARK: UI Functions
     private func configureNavBar() {
         
         guard let navBar = navigationController?.navigationBar else { return }
         
-        UIApplication.shared.statusBarStyle = .lightContent
+        //UIApplication.shared.statusBarStyle = .lightContent
         
         navBar.barTintColor = UIColor.repBlue
         let fontAttributes: [String: Any] = [NSForegroundColorAttributeName: UIColor.white,
-                                             NSFontAttributeName: UIFont.systemFont(ofSize: titleFontSize)]
+                                             NSFontAttributeName: UIFont.systemFont(ofSize: UIConstants.titleFontSize)]
         navBar.titleTextAttributes = fontAttributes
         toggleTitle(on: true)
         
@@ -73,24 +77,30 @@ class RepTableViewController: UIViewController {
         navBar.addSubview(searchBar)
         searchBar.isHidden = true
         searchBar.delegate = self
-
+        
     }
     
     @objc private func searchButtonPressed() {
         showSearchBar()
     }
     
-    private func configureEmptyView() {
-        view.addSubview(empty)
-        empty.snp.makeConstraints { (view) in
-            view.top.equalToSuperview().offset(self.navigationController!.navigationBar.frame.height + statusBarSize)
-            view.bottom.leading.trailing.equalToSuperview()
+    private func update(_ state: TableViewState) {
+        switch state {
+        case .empty:
+            configureView(empty)
+        case .loading:
+            configureView(loading)
+        case .populated:
+            configureView(tableView)
+            tableView.delegate = tableViewDriver
+            tableView.dataSource = tableViewDriver
         }
     }
     
-    private func configureLoadingView() {
-        view.addSubview(loading)
-        loading.snp.makeConstraints { (view) in
+    private func configureView(_ stateView: UIView) {
+        view.addSubview(stateView)
+        
+        stateView.snp.makeConstraints { (view) in
             view.top.equalToSuperview().offset(self.navigationController!.navigationBar.frame.height + statusBarSize)
             view.bottom.leading.trailing.equalToSuperview()
         }
@@ -98,7 +108,7 @@ class RepTableViewController: UIViewController {
 }
 
 
-extension RepTableViewController: UISearchBarDelegate {
+extension RepRepViewController: UISearchBarDelegate {
     fileprivate func showSearchBar() {
         searchBar.isHidden = false
         toggleTitle(on: false)
@@ -145,19 +155,23 @@ extension RepTableViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         hideSearchBar()
+        if searchBar.text?.characters.count == 5 {
+            APIRequestManager.manager.getRepInfo(zip: searchBar.text!) { repInfo in
+                DispatchQueue.main.async {
+                    if let validRepInfo = repInfo {
+                        self.tableViewDriver = RepRepTableViewDriver(viewModel: validRepInfo)
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        }
     }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        hideSearchBar()
-    }
-    
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //songViewModel.filter(by: searchText, sort: sortPreference)
     }
 }
 
-extension RepTableViewController: UIGestureRecognizerDelegate {
+extension RepRepViewController: UIGestureRecognizerDelegate {
     
     func configureGesture() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(handle(tap:)))
@@ -167,7 +181,6 @@ extension RepTableViewController: UIGestureRecognizerDelegate {
     }
     
     func handle(tap: UITapGestureRecognizer) {
-        
         if searchBar.isFirstResponder {
             hideSearchBar()
         }

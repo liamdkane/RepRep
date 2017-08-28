@@ -5,9 +5,10 @@ class APIRequestManager {
     static let manager = APIRequestManager()
     private init() {}
     
-    func getRepInfo(endPoint: String, callback: @escaping(RepInfo?) -> Void) {
+    func getRepInfo(zip: String, callback: @escaping(RepInfoViewModel?) -> Void) {
         
-        guard let myURL = URL(string: endPoint) else { return }
+        let endpoint = "https://www.googleapis.com/civicinfo/v2/representatives?key=AIzaSyBU0xkqxzxgDJfcSabEFYMXD9M-i8ugdGo&address=\(zip)"
+        guard let myURL = URL(string: endpoint) else { return }
         let session = URLSession(configuration: .default)
         session.dataTask(with: myURL) { (data, response, error) in
             
@@ -15,10 +16,10 @@ class APIRequestManager {
                 print(error.localizedDescription)
             }
             guard let validData = data else { return }
-            var repInfo: RepInfo? = nil
+            var repInfo: RepInfoViewModel? = nil
             do {
                 let json = try JSONSerialization.jsonObject(with: validData, options: [])
-                if let jsonDict = json as? [String: AnyObject], let validRepInfo = RepInfo(dict: jsonDict) {
+                if let jsonDict = json as? [String: AnyObject], let validRepInfo = RepInfoViewModel(dict: jsonDict) {
                     repInfo = validRepInfo
                 }
             } catch {

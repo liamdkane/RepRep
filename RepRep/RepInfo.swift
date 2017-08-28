@@ -8,12 +8,13 @@
 
 import Foundation
 
-class RepInfo {
+class RepInfoViewModel {
     var offices: [Office]
     var officials: [GovernmentOfficial]
     
     init(offices: [Office], officials: [GovernmentOfficial]) {
-        self.offices = offices
+        //Data comes in reversed, idk why.
+        self.offices = offices.reversed()
         self.officials = officials
     }
     

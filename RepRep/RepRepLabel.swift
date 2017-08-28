@@ -8,11 +8,11 @@
 
 import UIKit
 
-class RepLabel: UILabel {
+class RepRepLabel: UILabel {
 
     
     enum LabelType {
-        case main, detail
+        case main, detail, title
     }
     
     init(type: LabelType) {
@@ -26,6 +26,9 @@ class RepLabel: UILabel {
             textColor = UIColor.black
         case .detail:
             textColor = UIColor.repGrey
+        case .title:
+            textColor = UIColor.repRed
+            font = .boldSystemFont(ofSize: UIConstants.titleFontSize)
         }
     }
     

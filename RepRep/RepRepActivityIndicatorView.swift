@@ -12,7 +12,7 @@ class RepRepActivityIndicatorView: UIActivityIndicatorView {
 
     init() {
         super.init(activityIndicatorStyle: .whiteLarge)
-        backgroundColor = UIColor.repCream
+        backgroundColor = .clear
         color = UIColor.repBlue
     }
     
