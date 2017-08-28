@@ -23,7 +23,6 @@ class RepRepViewController: UIViewController {
     fileprivate let searchBarExtendedLength: CGFloat = {
         return UIScreen.main.bounds.width - 42
     }()
-    private let statusBarSize: CGFloat = 20
     
     //MARK: Views
     fileprivate var searchButton: UIBarButtonItem!
@@ -92,21 +91,11 @@ class RepRepViewController: UIViewController {
             configureView(loading)
         case .populated:
             configureView(tableView)
-            tableView.delegate = tableViewDriver
+            tableView.delegate = self
             tableView.dataSource = tableViewDriver
         }
     }
-    
-    private func configureView(_ stateView: UIView) {
-        view.addSubview(stateView)
-        
-        stateView.snp.makeConstraints { (view) in
-            view.top.equalToSuperview().offset(self.navigationController!.navigationBar.frame.height + statusBarSize)
-            view.bottom.leading.trailing.equalToSuperview()
-        }
-    }
 }
-
 
 extension RepRepViewController: UISearchBarDelegate {
     fileprivate func showSearchBar() {
@@ -171,18 +160,36 @@ extension RepRepViewController: UISearchBarDelegate {
     }
 }
 
+extension RepRepViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        RepRepSectionHeaderConstructor.update(header: header)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! RepRepTableViewCell
+        let dtvc = RepRepDetailViewController(for: cell.official)
+        navigationController?.pushViewController(dtvc, animated: true)
+    }
+}
+
 extension RepRepViewController: UIGestureRecognizerDelegate {
     
-    func configureGesture() {
+    fileprivate func configureGesture() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(handle(tap:)))
         tap.delegate = self
         view.addGestureRecognizer(tap)
         
     }
     
-    func handle(tap: UITapGestureRecognizer) {
+    
+    @objc private func handle(tap: UITapGestureRecognizer) {
         if searchBar.isFirstResponder {
+            tap.cancelsTouchesInView = true
             hideSearchBar()
+        } else {
+            tap.cancelsTouchesInView = false
         }
     }
 }

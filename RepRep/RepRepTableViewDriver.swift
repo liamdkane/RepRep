@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RepRepTableViewDriver: NSObject, UITableViewDataSource, UITableViewDelegate {
+class RepRepTableViewDriver: NSObject, UITableViewDataSource {
     
     private let repInfoViewModel: RepInfoViewModel
     
@@ -39,14 +39,7 @@ class RepRepTableViewDriver: NSObject, UITableViewDataSource, UITableViewDelegat
         return cell
     }
     
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
-        let header = view as! UITableViewHeaderFooterView
-        header.backgroundColor = UIColor.repRed
-        header.textLabel?.textColor = UIColor.repCream
-        header.textLabel?.lineBreakMode = .byWordWrapping
-        header.textLabel?.numberOfLines = 2
-        header.textLabel?.textAlignment = .center
-        header.textLabel?.adjustsFontForContentSizeCategory = true
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return repInfoViewModel.offices[section].name
     }
-
 }

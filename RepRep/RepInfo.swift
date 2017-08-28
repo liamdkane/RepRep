@@ -72,8 +72,26 @@ class Office {
 }
 
 class GovernmentOfficial {
+    
+    enum PoliticalParty {
+        case democrat
+        case republican
+        case independent
+        
+        init(_ string: String) {
+            switch string {
+            case _ where string.contains("Democrat"):
+                self = .democrat
+            case "Republican":
+                self = .republican
+            default:
+                self = .independent
+            }
+        }
+    }
+    
     var name: String
-    var party: String
+    var party: PoliticalParty
     var address: Address?
     var phone: String?
     var officeURL: String?
@@ -81,7 +99,7 @@ class GovernmentOfficial {
     var channels: [Channel]?
     var email: String?
     
-    init(name: String, address: Address?, party: String, phone: String?, officeURL: String?, photoURL: String?, channels: [Channel]?, email: String?) {
+    init(name: String, address: Address?, party: PoliticalParty, phone: String?, officeURL: String?, photoURL: String?, channels: [Channel]?, email: String?) {
         self.name = name
         self.party = party
         self.address = address
@@ -130,7 +148,7 @@ class GovernmentOfficial {
         }
         
         
-        self.init(name: name, address: address, party: party, phone: phone, officeURL: officeURL, photoURL: photoURL, channels: channels, email: email)
+        self.init(name: name, address: address, party: PoliticalParty(party), phone: phone, officeURL: officeURL, photoURL: photoURL, channels: channels, email: email)
     }
     
 }

@@ -15,7 +15,10 @@ struct UIConstants {
     static let titleFontSize: CGFloat = 20
     static let roundCornerValue: CGFloat = 20
     static let cellHeight: CGFloat = 40
+    static let statusBarSize: CGFloat = 20
+
 }
+
 
 class EmptyStateView: UIView {
     

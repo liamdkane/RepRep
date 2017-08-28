@@ -13,24 +13,28 @@ class RepRepTableViewCell: UITableViewCell {
 
     static let id = "RepRep"
     private let cellInset = 4
+    
+    var official: GovernmentOfficial! {
+        didSet {
+            self.loadOfficial()
+        }
+    }
+
     //MARK: - Views
     
     let nameLabel = RepRepLabel(type: .main)
-    //let partyIconImageView = UIImageView()
-    var partyIconImageView : UIImageView = {
-        let view = UIImageView()
-        view.contentMode = .center
-        view.backgroundColor = UIColor.repCream
-        view.layer.cornerRadius = UIConstants.roundCornerValue
-        view.layer.borderColor = UIColor.repBlue.cgColor
-        view.layer.borderWidth = 1
+    let partyIconImageView = RepRepProfileView()
+    var arrowView: UIImageView = {
+        let view = UIImageView(image: #imageLiteral(resourceName: "arrow").withRenderingMode(.alwaysTemplate))
+        view.tintColor = UIColor.repGrey
+        view.contentMode = .scaleAspectFit
         return view
     }()
-
-//    let
+    
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        backgroundColor = UIColor.repCream
         setupViewHierarchy()
         configureConstraints()
     }
@@ -39,21 +43,15 @@ class RepRepTableViewCell: UITableViewCell {
         super.init(coder: aDecoder)
     }
     
-    var official: GovernmentOfficial! {
-        didSet {
-            self.loadOfficial()
-        }
-    }
-    
     override func prepareForReuse() {
         super.prepareForReuse()
     }
     
     //MARK: - View Hierarchy and Constraints
-    
     private func setupViewHierarchy () {
-        self.contentView.addSubview(partyIconImageView)
-        self.contentView.addSubview(nameLabel)
+        contentView.addSubview(partyIconImageView)
+        contentView.addSubview(nameLabel)
+        contentView.addSubview(arrowView)
     }
     
     private func configureConstraints() {
@@ -63,25 +61,29 @@ class RepRepTableViewCell: UITableViewCell {
             view.height.width.equalTo(UIConstants.cellHeight)
         }
         
-        nameLabel.snp.makeConstraints { (view) in
-            view.leading.equalTo(partyIconImageView.snp.trailing).offset(UIConstants.innerBorderInset)
+        arrowView.snp.makeConstraints { (view) in
             view.centerY.equalToSuperview()
             view.trailing.equalToSuperview().inset(cellInset)
+            view.height.width.equalTo(UIConstants.cellHeight / 2)
+        }
+        
+        nameLabel.snp.makeConstraints { (view) in
+            view.centerY.centerX.equalToSuperview()
+            view.leading.lessThanOrEqualTo(partyIconImageView.snp.trailing).offset(cellInset)
+            view.trailing.lessThanOrEqualTo(arrowView.snp.leading).inset(-cellInset)
         }
     }
     
     //MARK: Content Managing
-    
-    func loadOfficial() {
-        self.nameLabel.text = self.official.name
-        
+    private func loadOfficial() {
+        self.nameLabel.text = official.name
         switch self.official.party {
-        case _ where self.official.party.contains("Democrat"):
-            self.partyIconImageView.image = #imageLiteral(resourceName: "democrat")
-        case "Republican":
-            self.partyIconImageView.image = #imageLiteral(resourceName: "republican")
-        default:
-            self.partyIconImageView.image = #imageLiteral(resourceName: "independent")
+        case .democrat:
+            partyIconImageView.image = #imageLiteral(resourceName: "democrat")
+        case .republican:
+            partyIconImageView.image = #imageLiteral(resourceName: "republican")
+        case .independent:
+            partyIconImageView.image = #imageLiteral(resourceName: "independent")
         }
     }
 }

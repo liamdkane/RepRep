@@ -11,10 +11,11 @@ import UIKit
 class RepRepTableView: UITableView {
     
     init() {
-        super.init(frame: .zero, style: .grouped)
+        super.init(frame: .zero, style: .plain)
         register(RepRepTableViewCell.self, forCellReuseIdentifier: RepRepTableViewCell.id)
         rowHeight = UITableViewAutomaticDimension
         estimatedRowHeight = UIConstants.cellHeight
+        backgroundColor = UIColor.repCream
         separatorInset = UIEdgeInsets.zero
         layoutMargins = UIEdgeInsets.zero
     }
