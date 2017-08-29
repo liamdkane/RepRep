@@ -14,9 +14,10 @@ class RepRepTableView: UITableView {
         super.init(frame: .zero, style: .plain)
         register(RepRepTableViewCell.self, forCellReuseIdentifier: RepRepTableViewCell.id)
         rowHeight = UITableViewAutomaticDimension
-        estimatedRowHeight = UIConstants.cellHeight
+        estimatedRowHeight = UIConstants.partyIconHeightHeight
         backgroundColor = UIColor.repCream
-        separatorInset = UIEdgeInsets.zero
+        //separatorInset = UIEdgeInsets.zero
+        separatorStyle = .none
         layoutMargins = UIEdgeInsets.zero
     }
     

@@ -32,7 +32,7 @@ class RepRepViewController: UIViewController {
     fileprivate let tableView = RepRepTableView()
     
     //MARK: Properties
-    private var state: TableViewState = .empty {
+    fileprivate var state: TableViewState = .empty {
         didSet {
             update(state)
         }
@@ -48,7 +48,7 @@ class RepRepViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.repCream
-        
+        edgesForExtendedLayout = []
         configureNavBar()
         configureGesture()
         update(state)
@@ -88,8 +88,12 @@ class RepRepViewController: UIViewController {
         case .empty:
             configureView(empty)
         case .loading:
+            tableView.removeFromSuperview()
             configureView(loading)
         case .populated:
+            
+            empty.removeFromSuperview()
+            loading.removeFromSuperview()
             configureView(tableView)
             tableView.delegate = self
             tableView.dataSource = tableViewDriver
@@ -143,6 +147,7 @@ extension RepRepViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        state = .loading
         hideSearchBar()
         if searchBar.text?.characters.count == 5 {
             APIRequestManager.manager.getRepInfo(zip: searchBar.text!) { repInfo in

@@ -23,7 +23,7 @@ class RepRepTableViewCell: UITableViewCell {
     //MARK: - Views
     
     let nameLabel = RepRepLabel(type: .main)
-    let partyIconImageView = RepRepProfileView()
+    let partyIconImageView = RepRepPartyIconView()
     var arrowView: UIImageView = {
         let view = UIImageView(image: #imageLiteral(resourceName: "arrow").withRenderingMode(.alwaysTemplate))
         view.tintColor = UIColor.repGrey
@@ -58,13 +58,13 @@ class RepRepTableViewCell: UITableViewCell {
         partyIconImageView.snp.makeConstraints { (view) in
             view.top.leading.equalToSuperview().offset(cellInset)
             view.bottom.equalToSuperview().inset(cellInset)
-            view.height.width.equalTo(UIConstants.cellHeight)
+            view.height.width.equalTo(UIConstants.partyIconHeightHeight)
         }
         
         arrowView.snp.makeConstraints { (view) in
             view.centerY.equalToSuperview()
             view.trailing.equalToSuperview().inset(cellInset)
-            view.height.width.equalTo(UIConstants.cellHeight / 2)
+            view.height.width.equalTo(UIConstants.partyIconHeightHeight / 2)
         }
         
         nameLabel.snp.makeConstraints { (view) in
@@ -76,14 +76,7 @@ class RepRepTableViewCell: UITableViewCell {
     
     //MARK: Content Managing
     private func loadOfficial() {
-        self.nameLabel.text = official.name
-        switch self.official.party {
-        case .democrat:
-            partyIconImageView.image = #imageLiteral(resourceName: "democrat")
-        case .republican:
-            partyIconImageView.image = #imageLiteral(resourceName: "republican")
-        case .independent:
-            partyIconImageView.image = #imageLiteral(resourceName: "independent")
-        }
+        nameLabel.text = official.name
+        partyIconImageView.addImageFor(party: official.party)
     }
 }

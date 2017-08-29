@@ -11,7 +11,7 @@ import MessageUI
 
 typealias RepRepOfficialButtonDelegate = EmailButtonDelegate & PhoneButtonDelegate & MFMailComposeViewControllerDelegate
 
-class RepRepDetailViewController: UIViewController, RepRepOfficialButtonDelegate {
+class RepRepDetailViewController: UIViewController, RepRepOfficialButtonDelegate, UICollectionViewDelegate {
     
     let governmentOfficial: GovernmentOfficial
     let officialView = RepRepOfficialView()
@@ -21,6 +21,7 @@ class RepRepDetailViewController: UIViewController, RepRepOfficialButtonDelegate
         super.init(nibName: nil, bundle: nil)
         officialView.official = official
         officialView.delegate = self
+        getImage()
         
     }
     
@@ -31,6 +32,21 @@ class RepRepDetailViewController: UIViewController, RepRepOfficialButtonDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView(officialView)
+        edgesForExtendedLayout = []
+        dump(governmentOfficial.channels)
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.title = governmentOfficial.name
+
+    }
+    
+    func getImage() {
+        APIRequestManager.manager.getImage(APIEndpoint: governmentOfficial.photoURL ?? "") { (data) in
+            if data != nil {
+                DispatchQueue.main.async {
+                    self.officialView.load(profileImage: UIImage(data: data!)!)
+                }
+            }
+        }
     }
     
     //MARK: RepRepOfficialButtonDelegate Methods
@@ -64,5 +80,18 @@ class RepRepDetailViewController: UIViewController, RepRepOfficialButtonDelegate
         mailComposerVC.setMessageBody("\(governmentOfficial.name), \n\n ", isHTML: false)
         
         return mailComposerVC
-    }    
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.transform = CGAffineTransform(scaleX: 1.25, y: 1.25)
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let wvc = storyboard.instantiateViewController(withIdentifier: "wvc") as! WebViewController
+        self.selection = articles[indexPath.row].webURL
+        wvc.address = selection!
+        self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(checkTime), userInfo: nil, repeats: true)
+        timer.fire()
+    }
+
 }

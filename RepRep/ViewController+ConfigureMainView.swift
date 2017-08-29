@@ -14,10 +14,8 @@ import SnapKit
 extension  UIViewController {
     func configureView(_ stateView: UIView) {
         view.addSubview(stateView)
-
         stateView.snp.makeConstraints { (view) in
-            view.top.equalToSuperview().offset(self.navigationController!.navigationBar.frame.height + UIConstants.statusBarSize)
-            view.bottom.leading.trailing.equalToSuperview()
+            view.top.bottom.leading.trailing.equalToSuperview()
         }
     }
 }

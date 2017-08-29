@@ -12,7 +12,7 @@ class RepRepContainerView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        layer.borderWidth = 2
+        layer.borderWidth = 1
         layer.borderColor = UIColor.repRed.cgColor
     }
     

@@ -25,9 +25,8 @@ class APIRequestManager {
             } catch {
                 print(error.localizedDescription)
             }
-            
             callback(repInfo)
-            }.resume()
+        }.resume()
     }
     
     func getArticles(searchTerm: String, callback: @escaping ([Article]?) -> Void) {

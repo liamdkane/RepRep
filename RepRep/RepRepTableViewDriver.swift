@@ -14,6 +14,7 @@ class RepRepTableViewDriver: NSObject, UITableViewDataSource {
     
     init(viewModel: RepInfoViewModel) {
         repInfoViewModel = viewModel
+        dump(repInfoViewModel)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -28,7 +29,7 @@ class RepRepTableViewDriver: NSObject, UITableViewDataSource {
         var cell: RepRepTableViewCell
         if let dequedCell = tableView.dequeueReusableCell(withIdentifier: RepRepTableViewCell.id, for: indexPath) as? RepRepTableViewCell {
             cell = dequedCell
-        }else {
+        } else {
             cell = RepRepTableViewCell(style: .default, reuseIdentifier: RepRepTableViewCell.id)
         }
         

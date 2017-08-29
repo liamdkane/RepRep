@@ -8,14 +8,27 @@
 
 import UIKit
 
-class RepRepProfileView: UIImageView {
+class RepRepPartyIconView: UIImageView {
     
     init() {
         super.init(frame: .zero)
         backgroundColor = UIColor.repCream
+        contentMode = .center
         layer.cornerRadius = UIConstants.roundCornerValue
         layer.borderColor = UIColor.repBlue.cgColor
         layer.borderWidth = 1
+    }
+    
+    func addImageFor(party: GovernmentOfficial.PoliticalParty) {
+        switch party {
+        case .democrat:
+            image = #imageLiteral(resourceName: "democrat")
+        case .republican:
+            image = #imageLiteral(resourceName: "republican")
+        case .independent:
+            image = #imageLiteral(resourceName: "independent")
+        }
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

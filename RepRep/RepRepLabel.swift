@@ -24,8 +24,10 @@ class RepRepLabel: UILabel {
         switch type {
         case .main:
             textColor = UIColor.black
+            //font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
         case .detail:
             textColor = UIColor.repGrey
+            font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
         case .title:
             textColor = UIColor.repRed
             font = .boldSystemFont(ofSize: UIConstants.titleFontSize)

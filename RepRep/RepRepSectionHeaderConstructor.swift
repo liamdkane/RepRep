@@ -7,14 +7,35 @@
 //
 
 import UIKit
+import SnapKit
 
 struct RepRepSectionHeaderConstructor {
     static func update(header: UITableViewHeaderFooterView) {
-        header.tintColor = UIColor.repRed
-        header.textLabel?.textColor = UIColor.repCream
+        header.tintColor = UIColor.repCream
+        header.textLabel?.textColor = .black
+        header.textLabel?.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
         header.textLabel?.lineBreakMode = .byWordWrapping
         header.textLabel?.numberOfLines = 2
         header.textLabel?.textAlignment = .center
-        header.textLabel?.adjustsFontForContentSizeCategory = true
+        
+        let bottomBorder = RepRepBorderView()
+        
+        header.addSubview(bottomBorder)
+        bottomBorder.snp.makeConstraints { (view) in
+            view.bottom.centerX.equalToSuperview()
+            view.height.equalTo(1)
+            view.width.equalToSuperview().multipliedBy(0.7)
+        }
+        
+        let topBorder = RepRepBorderView()
+        
+        header.addSubview(topBorder)
+        topBorder.snp.makeConstraints { (view) in
+            view.top.centerX.equalToSuperview()
+            view.height.equalTo(1)
+            view.width.equalToSuperview().multipliedBy(0.7)
+        }
+
+        //header.textLabel?.adjustsFontForContentSizeCategory = true
     }
 }
