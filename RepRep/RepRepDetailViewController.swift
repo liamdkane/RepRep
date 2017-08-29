@@ -49,6 +49,12 @@ class RepRepDetailViewController: UIViewController, RepRepOfficialButtonDelegate
         }
     }
     
+    func getArticles () {
+        APIRequestManager.manager.getArticles(searchTerm: governmentOfficial.name) { ([Article]?) in
+            <#code#>
+        }
+    }
+    
     //MARK: RepRepOfficialButtonDelegate Methods
     
     func didPressPhoneButton() {
@@ -83,15 +89,15 @@ class RepRepDetailViewController: UIViewController, RepRepOfficialButtonDelegate
     }
     
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
-        cell?.transform = CGAffineTransform(scaleX: 1.25, y: 1.25)
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let wvc = storyboard.instantiateViewController(withIdentifier: "wvc") as! WebViewController
-        self.selection = articles[indexPath.row].webURL
-        wvc.address = selection!
-        self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(checkTime), userInfo: nil, repeats: true)
-        timer.fire()
-    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let cell = collectionView.cellForItem(at: indexPath)
+//        cell?.transform = CGAffineTransform(scaleX: 1.25, y: 1.25)
+//        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+//        let wvc = storyboard.instantiateViewController(withIdentifier: "wvc") as! WebViewController
+//        self.selection = articles[indexPath.row].webURL
+//        wvc.address = selection!
+//        self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(checkTime), userInfo: nil, repeats: true)
+//        timer.fire()
+//    }
 
 }

@@ -11,6 +11,8 @@ import SnapKit
 
 class RepRepArticleCollectionViewCell: UICollectionViewCell {
     
+    static let id = "RepRepArticleCell"
+    
     var articleImageView: UIImageView = {
         let view = UIImageView()
         return view

@@ -9,8 +9,18 @@
 import UIKit
 
 class RepRepCollectionView: UICollectionView {
-    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
-        super.init(frame: frame, collectionViewLayout: UICollectionViewLayout())
+    init() {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = UICollectionViewFlowLayoutAutomaticSize
+        layout.sectionInset = UIEdgeInsets(top: 0,
+                                           left: CGFloat(UIConstants.innerBorderInset),
+                                           bottom: 0,
+                                           right: CGFloat(UIConstants.innerBorderInset))
+        layout.scrollDirection = .horizontal
+        layout.estimatedItemSize = .zero
+        super.init(frame: .zero, collectionViewLayout: layout)
+        register(RepRepArticleCollectionViewCell.self, forCellWithReuseIdentifier: RepRepArticleCollectionViewCell.id)
+        backgroundColor = UIColor.repCream
     }
     
     required init?(coder aDecoder: NSCoder) {

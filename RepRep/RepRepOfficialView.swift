@@ -31,7 +31,7 @@ class RepRepOfficialView: UIView {
     let borderView = RepRepBorderView()
     let partyIconView = RepRepPartyIconView()
     let nameLabel = RepRepLabel(type: .main)
-    let articleCollectionView = UICollectionView()
+    let articleCollectionView = RepRepCollectionView()
     
     
     var official: GovernmentOfficial! {
@@ -115,7 +115,8 @@ class RepRepOfficialView: UIView {
         addSubview(articleCollectionView)
         articleCollectionView.snp.makeConstraints { (view) in
             view.top.equalTo(emailButton.snp.bottom).offset(UIConstants.innerBorderInset)
-            view.leading.trailing.bottom.equalToSuperview().inset(UIConstants.innerBorderInset)
+            view.bottom.equalToSuperview().inset(UIConstants.innerBorderInset)
+            view.leading.trailing.equalToSuperview()
         }
     }
     

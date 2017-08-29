@@ -17,12 +17,17 @@ class RepRepCollectionViewDriver: NSObject, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return articles.count
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! RepRepArticleCollectionViewCell
-        
+        var cell: RepRepArticleCollectionViewCell
+        if let dequedCell = collectionView.dequeueReusableCell(withReuseIdentifier: RepRepArticleCollectionViewCell.id, for: indexPath) as? RepRepArticleCollectionViewCell {
+            cell = dequedCell
+        } else {
+            cell = RepRepArticleCollectionViewCell()
+        }
+
         if indexPath.row % 2 == 0 {
             cell.backgroundColor = UIColor.repRed.withAlphaComponent(0.85)
         } else {
