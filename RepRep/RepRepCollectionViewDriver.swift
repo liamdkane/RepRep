@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RepRepCollectionViewDriver: UICollectionViewDataSource {
+class RepRepCollectionViewDriver: NSObject, UICollectionViewDataSource {
     
     let articles = [Article]()
     
