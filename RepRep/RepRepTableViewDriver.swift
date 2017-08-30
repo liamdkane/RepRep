@@ -10,7 +10,7 @@ import UIKit
 
 class RepRepTableViewDriver: NSObject, UITableViewDataSource {
     
-    private let repInfoViewModel: RepInfoViewModel
+    let repInfoViewModel: RepInfoViewModel
     
     init(viewModel: RepInfoViewModel) {
         repInfoViewModel = viewModel

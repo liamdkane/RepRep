@@ -18,6 +18,7 @@ class LoadingStateView: UIVisualEffectView {
         let blurView = UIBlurEffect(style: .regular)
         super.init(effect: blurView)
         configureConstraints()
+        backgroundColor = UIColor.repCream
         activityIndicator.startAnimating()
         loadingLabel.text = "Loading..."
     }

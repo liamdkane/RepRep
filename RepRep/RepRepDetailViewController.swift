@@ -17,11 +17,12 @@ class RepRepDetailViewController: UIViewController, RepRepOfficialButtonDelegate
     let officialView = RepRepOfficialView()
     var collectionViewDriver: RepRepCollectionViewDriver!
     
-    init(for official: GovernmentOfficial) {
+    init(for official: GovernmentOfficial, title: String) {
         governmentOfficial = official
         super.init(nibName: nil, bundle: nil)
         officialView.official = official
         officialView.delegate = self
+        navigationController?.title = title
         getImage()
         getArticles()
     }
@@ -97,14 +98,10 @@ class RepRepDetailViewController: UIViewController, RepRepOfficialButtonDelegate
     }   
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let cell = collectionView.cellForItem(at: indexPath)
-//        cell?.transform = CGAffineTransform(scaleX: 1.25, y: 1.25)
-//        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-//        let wvc = storyboard.instantiateViewController(withIdentifier: "wvc") as! WebViewController
-//        self.selection = articles[indexPath.row].webURL
-//        wvc.address = selection!
-//        self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(checkTime), userInfo: nil, repeats: true)
-//        timer.fire()
+        let webVC = WebViewController()
+        let cell = collectionView.cellForItem(at: indexPath) as! RepRepArticleCollectionViewCell
+        webVC.address = cell.article.webURL
+        
+        navigationController?.pushViewController(webVC, animated: true)
     }
-
 }

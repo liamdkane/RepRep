@@ -170,7 +170,8 @@ extension RepRepViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! RepRepTableViewCell
-        let dtvc = RepRepDetailViewController(for: cell.official)
+        let officeTitle = tableViewDriver.repInfoViewModel.offices[indexPath.section].name
+        let dtvc = RepRepDetailViewController(for: cell.official, title: officeTitle)
         navigationController?.pushViewController(dtvc, animated: true)
     }
 }

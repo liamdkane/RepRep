@@ -31,6 +31,7 @@
 		0C55E5D51F4B300F00F908D1 /* ZipSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C55E5D41F4B300F00F908D1 /* ZipSearchBar.swift */; };
 		0C55E5D71F4CBB7000F908D1 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C55E5D61F4CBB7000F908D1 /* EmptyStateView.swift */; };
 		0C9E8EFB1F57034E00C7EEF8 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9E8EFA1F57034E00C7EEF8 /* UIConstants.swift */; };
+		0C9E8EFD1F57347400C7EEF8 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9E8EFC1F57347400C7EEF8 /* WebViewController.swift */; };
 		0CCD7F141F477CA800B72DA1 /* APIRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD7F0E1F477CA800B72DA1 /* APIRequestManager.swift */; };
 		0CCD7F151F477CA800B72DA1 /* Election.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD7F0F1F477CA800B72DA1 /* Election.swift */; };
 		0CCD7F181F477CA800B72DA1 /* StateAdminBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD7F121F477CA800B72DA1 /* StateAdminBody.swift */; };
@@ -100,6 +101,7 @@
 		0C55E5D41F4B300F00F908D1 /* ZipSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipSearchBar.swift; sourceTree = "<group>"; };
 		0C55E5D61F4CBB7000F908D1 /* EmptyStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		0C9E8EFA1F57034E00C7EEF8 /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		0C9E8EFC1F57347400C7EEF8 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		0CCD7F0E1F477CA800B72DA1 /* APIRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIRequestManager.swift; path = ../APIRequestManager.swift; sourceTree = "<group>"; };
 		0CCD7F0F1F477CA800B72DA1 /* Election.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Election.swift; path = ../Election.swift; sourceTree = "<group>"; };
 		0CCD7F121F477CA800B72DA1 /* StateAdminBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StateAdminBody.swift; path = ../StateAdminBody.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				0C4701841F549F4F00AF2E03 /* RepRepTableViewDriver.swift */,
 				0CFADCB91F55F15900A9F7E3 /* RepRepCollectionViewDriver.swift */,
 				0C4701881F54C23D00AF2E03 /* RepRepDetailViewController.swift */,
+				0C9E8EFC1F57347400C7EEF8 /* WebViewController.swift */,
 				0C9E8EFA1F57034E00C7EEF8 /* UIConstants.swift */,
 				0C31291D1F47780000B7CC0C /* AppDelegate.swift */,
 				0C55E5CD1F48AA1C00F908D1 /* Models */,
@@ -571,6 +574,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C9E8EFD1F57347400C7EEF8 /* WebViewController.swift in Sources */,
 				0CFADCB41F55E8AA00A9F7E3 /* RepRepBorderView.swift in Sources */,
 				0C3BFD971F533E6200248BF8 /* RepRepLabel.swift in Sources */,
 				0C3BFDA41F54933200248BF8 /* RepRepTableView.swift in Sources */,
