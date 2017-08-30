@@ -30,12 +30,12 @@
 		0C55E5D11F48BA4D00F908D1 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C55E5D01F48BA4D00F908D1 /* Article.swift */; };
 		0C55E5D51F4B300F00F908D1 /* ZipSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C55E5D41F4B300F00F908D1 /* ZipSearchBar.swift */; };
 		0C55E5D71F4CBB7000F908D1 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C55E5D61F4CBB7000F908D1 /* EmptyStateView.swift */; };
+		0C9E8EFB1F57034E00C7EEF8 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9E8EFA1F57034E00C7EEF8 /* UIConstants.swift */; };
 		0CCD7F141F477CA800B72DA1 /* APIRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD7F0E1F477CA800B72DA1 /* APIRequestManager.swift */; };
 		0CCD7F151F477CA800B72DA1 /* Election.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD7F0F1F477CA800B72DA1 /* Election.swift */; };
-		0CCD7F171F477CA800B72DA1 /* RepDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD7F111F477CA800B72DA1 /* RepDetailsViewController.swift */; };
 		0CCD7F181F477CA800B72DA1 /* StateAdminBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD7F121F477CA800B72DA1 /* StateAdminBody.swift */; };
 		0CCD7F191F477CA800B72DA1 /* VoterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD7F131F477CA800B72DA1 /* VoterInfo.swift */; };
-		0CCD7F1D1F48804A00B72DA1 /* RepInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD7F1A1F48804A00B72DA1 /* RepInfo.swift */; };
+		0CCD7F1D1F48804A00B72DA1 /* RepInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD7F1A1F48804A00B72DA1 /* RepInfoViewModel.swift */; };
 		0CCD7F1E1F48804A00B72DA1 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD7F1B1F48804A00B72DA1 /* Address.swift */; };
 		0CCD7F1F1F48804A00B72DA1 /* PollLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD7F1C1F48804A00B72DA1 /* PollLocation.swift */; };
 		0CFADCB01F55BCAC00A9F7E3 /* RepRepButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFADCAF1F55BCAC00A9F7E3 /* RepRepButton.swift */; };
@@ -44,6 +44,9 @@
 		0CFADCB61F55EF0B00A9F7E3 /* RepRepArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFADCB51F55EF0B00A9F7E3 /* RepRepArticleCollectionViewCell.swift */; };
 		0CFADCB81F55F0D700A9F7E3 /* RepRepCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFADCB71F55F0D700A9F7E3 /* RepRepCollectionView.swift */; };
 		0CFADCBA1F55F15900A9F7E3 /* RepRepCollectionViewDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFADCB91F55F15900A9F7E3 /* RepRepCollectionViewDriver.swift */; };
+		0CFADCBC1F55FC3700A9F7E3 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFADCBB1F55FC3700A9F7E3 /* Channel.swift */; };
+		0CFADCBE1F55FC4D00A9F7E3 /* Government Official.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFADCBD1F55FC4D00A9F7E3 /* Government Official.swift */; };
+		0CFADCC01F55FC6900A9F7E3 /* Office.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFADCBF1F55FC6900A9F7E3 /* Office.swift */; };
 		0EE00BC204FEFF785FE306BE /* Pods_RepRepUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A95AA4F8C3F8597EF73C0BD0 /* Pods_RepRepUITests.framework */; };
 		53EE648A0C4A464472F9D06A /* Pods_RepRep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A02ADB53D1F5ACCE3C1758F8 /* Pods_RepRep.framework */; };
 		8A8B484EA136DD7737903CE2 /* Pods_RepRepTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F446992B4718142BC94D31 /* Pods_RepRepTests.framework */; };
@@ -96,12 +99,12 @@
 		0C55E5D01F48BA4D00F908D1 /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		0C55E5D41F4B300F00F908D1 /* ZipSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipSearchBar.swift; sourceTree = "<group>"; };
 		0C55E5D61F4CBB7000F908D1 /* EmptyStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		0C9E8EFA1F57034E00C7EEF8 /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		0CCD7F0E1F477CA800B72DA1 /* APIRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIRequestManager.swift; path = ../APIRequestManager.swift; sourceTree = "<group>"; };
 		0CCD7F0F1F477CA800B72DA1 /* Election.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Election.swift; path = ../Election.swift; sourceTree = "<group>"; };
-		0CCD7F111F477CA800B72DA1 /* RepDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepDetailsViewController.swift; path = ../RepDetailsViewController.swift; sourceTree = "<group>"; };
 		0CCD7F121F477CA800B72DA1 /* StateAdminBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StateAdminBody.swift; path = ../StateAdminBody.swift; sourceTree = "<group>"; };
 		0CCD7F131F477CA800B72DA1 /* VoterInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VoterInfo.swift; path = ../VoterInfo.swift; sourceTree = "<group>"; };
-		0CCD7F1A1F48804A00B72DA1 /* RepInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepInfo.swift; sourceTree = "<group>"; };
+		0CCD7F1A1F48804A00B72DA1 /* RepInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepInfoViewModel.swift; sourceTree = "<group>"; };
 		0CCD7F1B1F48804A00B72DA1 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		0CCD7F1C1F48804A00B72DA1 /* PollLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollLocation.swift; sourceTree = "<group>"; };
 		0CFADCAF1F55BCAC00A9F7E3 /* RepRepButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepRepButton.swift; sourceTree = "<group>"; };
@@ -110,6 +113,9 @@
 		0CFADCB51F55EF0B00A9F7E3 /* RepRepArticleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepRepArticleCollectionViewCell.swift; sourceTree = "<group>"; };
 		0CFADCB71F55F0D700A9F7E3 /* RepRepCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepRepCollectionView.swift; sourceTree = "<group>"; };
 		0CFADCB91F55F15900A9F7E3 /* RepRepCollectionViewDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepRepCollectionViewDriver.swift; sourceTree = "<group>"; };
+		0CFADCBB1F55FC3700A9F7E3 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		0CFADCBD1F55FC4D00A9F7E3 /* Government Official.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Government Official.swift"; sourceTree = "<group>"; };
+		0CFADCBF1F55FC6900A9F7E3 /* Office.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Office.swift; sourceTree = "<group>"; };
 		24F446992B4718142BC94D31 /* Pods_RepRepTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RepRepTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4796BEBBD78ADECF01EC4A98 /* Pods-RepRepUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RepRepUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RepRepUITests/Pods-RepRepUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A02ADB53D1F5ACCE3C1758F8 /* Pods_RepRep.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RepRep.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,6 +185,7 @@
 				0C4701841F549F4F00AF2E03 /* RepRepTableViewDriver.swift */,
 				0CFADCB91F55F15900A9F7E3 /* RepRepCollectionViewDriver.swift */,
 				0C4701881F54C23D00AF2E03 /* RepRepDetailViewController.swift */,
+				0C9E8EFA1F57034E00C7EEF8 /* UIConstants.swift */,
 				0C31291D1F47780000B7CC0C /* AppDelegate.swift */,
 				0C55E5CD1F48AA1C00F908D1 /* Models */,
 				0C3BFD9E1F54885700248BF8 /* Views */,
@@ -245,12 +252,14 @@
 			isa = PBXGroup;
 			children = (
 				0CCD7F0F1F477CA800B72DA1 /* Election.swift */,
-				0CCD7F111F477CA800B72DA1 /* RepDetailsViewController.swift */,
 				0C55E5D01F48BA4D00F908D1 /* Article.swift */,
 				0CCD7F121F477CA800B72DA1 /* StateAdminBody.swift */,
 				0CCD7F1C1F48804A00B72DA1 /* PollLocation.swift */,
 				0CCD7F131F477CA800B72DA1 /* VoterInfo.swift */,
-				0CCD7F1A1F48804A00B72DA1 /* RepInfo.swift */,
+				0CCD7F1A1F48804A00B72DA1 /* RepInfoViewModel.swift */,
+				0CFADCBF1F55FC6900A9F7E3 /* Office.swift */,
+				0CFADCBD1F55FC4D00A9F7E3 /* Government Official.swift */,
+				0CFADCBB1F55FC3700A9F7E3 /* Channel.swift */,
 				0CCD7F1B1F48804A00B72DA1 /* Address.swift */,
 			);
 			name = Models;
@@ -567,15 +576,16 @@
 				0C3BFDA41F54933200248BF8 /* RepRepTableView.swift in Sources */,
 				0C55E5D11F48BA4D00F908D1 /* Article.swift in Sources */,
 				0C4701901F54D78900AF2E03 /* RepRepPartyIconView.swift in Sources */,
-				0CCD7F171F477CA800B72DA1 /* RepDetailsViewController.swift in Sources */,
 				0C4701851F549F4F00AF2E03 /* RepRepTableViewDriver.swift in Sources */,
 				0C3BFDA21F548C5600248BF8 /* RepRepActivityIndicatorView.swift in Sources */,
 				0C4701891F54C23D00AF2E03 /* RepRepDetailViewController.swift in Sources */,
 				0C47A88B1F53278300D74B31 /* UIColor+RepRepColours.swift in Sources */,
 				0CFADCB81F55F0D700A9F7E3 /* RepRepCollectionView.swift in Sources */,
 				0C3BFD9D1F54884D00248BF8 /* LoadingStateView.swift in Sources */,
+				0C9E8EFB1F57034E00C7EEF8 /* UIConstants.swift in Sources */,
 				0CCD7F181F477CA800B72DA1 /* StateAdminBody.swift in Sources */,
 				0CFADCB01F55BCAC00A9F7E3 /* RepRepButton.swift in Sources */,
+				0CFADCBC1F55FC3700A9F7E3 /* Channel.swift in Sources */,
 				0C3BFDA01F5488F300248BF8 /* RepRepContainerView.swift in Sources */,
 				0CCD7F151F477CA800B72DA1 /* Election.swift in Sources */,
 				0C4701871F54BE5300AF2E03 /* RepRepSectionHeaderConstructor.swift in Sources */,
@@ -584,9 +594,11 @@
 				0CCD7F141F477CA800B72DA1 /* APIRequestManager.swift in Sources */,
 				0C55E5D71F4CBB7000F908D1 /* EmptyStateView.swift in Sources */,
 				0CFADCB61F55EF0B00A9F7E3 /* RepRepArticleCollectionViewCell.swift in Sources */,
+				0CFADCC01F55FC6900A9F7E3 /* Office.swift in Sources */,
 				0CCD7F191F477CA800B72DA1 /* VoterInfo.swift in Sources */,
 				0C55E5D51F4B300F00F908D1 /* ZipSearchBar.swift in Sources */,
-				0CCD7F1D1F48804A00B72DA1 /* RepInfo.swift in Sources */,
+				0CFADCBE1F55FC4D00A9F7E3 /* Government Official.swift in Sources */,
+				0CCD7F1D1F48804A00B72DA1 /* RepInfoViewModel.swift in Sources */,
 				0C31291E1F47780000B7CC0C /* AppDelegate.swift in Sources */,
 				0C3BFD991F53517900248BF8 /* StarView.swift in Sources */,
 				0C55E5CC1F489AEE00F908D1 /* RepRepViewController.swift in Sources */,

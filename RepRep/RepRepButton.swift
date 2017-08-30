@@ -33,6 +33,7 @@ class RepRepButton: UIButton {
         
         super.init(frame: .zero)
         isEnabled = false
+        backgroundColor = .white
         contentEdgeInsets = UIEdgeInsets(top: 4, left: 6, bottom: 4, right: 6)
         switch type {
         case .email:

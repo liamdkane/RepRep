@@ -12,7 +12,10 @@ class RepRepLabel: UILabel {
 
     
     enum LabelType {
-        case main, detail, title
+        case main
+        case detail
+        case title
+        case collectionCellLabel
     }
     
     init(type: LabelType) {
@@ -24,13 +27,17 @@ class RepRepLabel: UILabel {
         switch type {
         case .main:
             textColor = UIColor.black
-            //font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
         case .detail:
             textColor = UIColor.repGrey
             font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
         case .title:
             textColor = UIColor.repRed
             font = .boldSystemFont(ofSize: UIConstants.titleFontSize)
+        case .collectionCellLabel:
+            font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
+            backgroundColor = UIColor.repCream
+            textColor = UIColor.repGrey
+            alpha = 0.7
         }
     }
     

@@ -15,6 +15,7 @@ class RepRepDetailViewController: UIViewController, RepRepOfficialButtonDelegate
     
     let governmentOfficial: GovernmentOfficial
     let officialView = RepRepOfficialView()
+    var collectionViewDriver: RepRepCollectionViewDriver!
     
     init(for official: GovernmentOfficial) {
         governmentOfficial = official
@@ -22,7 +23,7 @@ class RepRepDetailViewController: UIViewController, RepRepOfficialButtonDelegate
         officialView.official = official
         officialView.delegate = self
         getImage()
-        
+        getArticles()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -50,8 +51,15 @@ class RepRepDetailViewController: UIViewController, RepRepOfficialButtonDelegate
     }
     
     func getArticles () {
-        APIRequestManager.manager.getArticles(searchTerm: governmentOfficial.name) { ([Article]?) in
-            <#code#>
+        APIRequestManager.manager.getArticles(searchTerm: governmentOfficial.name) { (articles) in
+            if articles != nil {
+                DispatchQueue.main.async {
+                    self.collectionViewDriver = RepRepCollectionViewDriver(articles: articles!)
+                    self.officialView.articleCollectionView.dataSource = self.collectionViewDriver
+                    self.officialView.articleCollectionView.delegate = self
+                    self.officialView.articleCollectionView.reloadData()
+                }
+            }
         }
     }
     
@@ -86,10 +94,9 @@ class RepRepDetailViewController: UIViewController, RepRepOfficialButtonDelegate
         mailComposerVC.setMessageBody("\(governmentOfficial.name), \n\n ", isHTML: false)
         
         return mailComposerVC
-    }
+    }   
     
-    
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        let cell = collectionView.cellForItem(at: indexPath)
 //        cell?.transform = CGAffineTransform(scaleX: 1.25, y: 1.25)
 //        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
@@ -98,6 +105,6 @@ class RepRepDetailViewController: UIViewController, RepRepOfficialButtonDelegate
 //        wvc.address = selection!
 //        self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(checkTime), userInfo: nil, repeats: true)
 //        timer.fire()
-//    }
+    }
 
 }

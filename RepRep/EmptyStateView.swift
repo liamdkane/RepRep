@@ -9,15 +9,6 @@
 import UIKit
 import SnapKit
 
-struct UIConstants {
-    static let innerBorderInset = 24
-    static let outerBorderInset = 44
-    static let titleFontSize: CGFloat = 20
-    static let roundCornerValue: CGFloat = 20
-    static let partyIconHeightHeight: CGFloat = 40
-    static let statusBarSize: CGFloat = 20
-}
-
 
 class EmptyStateView: UIView {
     

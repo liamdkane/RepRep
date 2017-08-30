@@ -17,20 +17,22 @@ protocol PhoneButtonDelegate: class {
     func didPressPhoneButton()
 }
 
-class RepRepOfficialView: UIView {
+class RepRepOfficialView: UIView, UICollectionViewDelegateFlowLayout {
     
     //MARK: Constants
     let imageHeightScaleFactor = 3
     let imageFrameInset = 4
+    let buttonBorder = 14
+    let borderInset = 8
     
     //MARK: Views
-    let profileImageView = UIImageView(image: #imageLiteral(resourceName: "defaultProfile"))
-    let profileContainerView = UIView()
-    let emailButton = RepRepButton(type: .email)
-    let phoneButton = RepRepButton(type: .phone)
-    let borderView = RepRepBorderView()
-    let partyIconView = RepRepPartyIconView()
-    let nameLabel = RepRepLabel(type: .main)
+    private let profileImageView = UIImageView(image: #imageLiteral(resourceName: "defaultProfile"))
+    private let buttonContainerView = UIView()
+    private let emailButton = RepRepButton(type: .email)
+    private let phoneButton = RepRepButton(type: .phone)
+    private let borderView = RepRepBorderView()
+    private let partyIconView = RepRepPartyIconView()
+    private let nameLabel = RepRepLabel(type: .main)
     let articleCollectionView = RepRepCollectionView()
     
     
@@ -41,8 +43,6 @@ class RepRepOfficialView: UIView {
     }
     
     weak var delegate: RepRepOfficialButtonDelegate!
-    weak var collectionViewDataSource: UICollectionViewDataSource!
-    weak var collectionViewDelegate: UICollectionViewDelegate!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -59,82 +59,70 @@ class RepRepOfficialView: UIView {
     }
     
     private func configureConstraints () {
-        addSubview(profileContainerView)
         
-        profileContainerView.snp.makeConstraints { (view) in
-            view.top.equalToSuperview().inset(UIConstants.outerBorderInset)
-            view.centerX.equalToSuperview()
+        addSubview(profileImageView)
+        addSubview(borderView)
+        addSubview(partyIconView)
+        addSubview(phoneButton)
+        addSubview(emailButton)
+        addSubview(nameLabel)
+        addSubview(articleCollectionView)
+
+        profileImageView.snp.makeConstraints { (view) in
+            view.top.equalToSuperview().inset(UIConstants.innerBorderInset)
             view.leading.greaterThanOrEqualToSuperview().inset(UIConstants.outerBorderInset)
             view.trailing.lessThanOrEqualToSuperview().inset(UIConstants.outerBorderInset)
             view.height.equalToSuperview().dividedBy(imageHeightScaleFactor)
         }
-        
-        profileContainerView.addSubview(profileImageView)
-        profileContainerView.addSubview(borderView)
 
-        profileImageView.snp.makeConstraints { (view) in
-            view.top.equalToSuperview().inset(imageFrameInset)
-            view.leading.greaterThanOrEqualToSuperview().inset(imageFrameInset)
-            view.trailing.lessThanOrEqualToSuperview().inset(imageFrameInset)
-        }
-        
-        //profileImageView.resizeImage()
-        
-        borderView.snp.makeConstraints { (view) in
-            view.top.equalTo(profileImageView.snp.bottom).offset(imageFrameInset)
-            view.height.equalTo(1)
-            view.leading.bottom.trailing.equalToSuperview()
-        }
-
-        addSubview(nameLabel)
-
-        nameLabel.snp.makeConstraints { (view) in
-            view.top.equalTo(profileContainerView.snp.bottom).offset(imageFrameInset)
-            view.leading.trailing.equalToSuperview().inset(imageFrameInset)
-        }
-        
-        addSubview(emailButton)
         emailButton.snp.makeConstraints({ (view) in
             view.centerX.equalToSuperview().multipliedBy(0.5)
-            view.top.equalTo(nameLabel.snp.bottom).offset(UIConstants.outerBorderInset)
+            view.top.equalTo(profileImageView.snp.bottom).offset(buttonBorder)
         })
 
-        addSubview(phoneButton)
         phoneButton.snp.makeConstraints { (view) in
             view.centerX.equalToSuperview().multipliedBy(1.5)
             view.centerY.width.equalTo(emailButton)
         }
         
-        addSubview(partyIconView)
         partyIconView.snp.makeConstraints { (view) in
             view.centerY.equalTo(phoneButton)
             view.centerX.equalToSuperview()
             view.height.width.equalTo(UIConstants.partyIconHeightHeight)
         }
+        
+        borderView.snp.makeConstraints { (view) in
+            view.top.equalTo(partyIconView.snp.bottom).offset(borderInset)
+            view.height.equalTo(1)
+            view.leading.trailing.equalToSuperview().inset(UIConstants.innerBorderInset)
+        }
 
-        addSubview(articleCollectionView)
+        nameLabel.snp.makeConstraints { (view) in
+            view.top.equalTo(borderView.snp.bottom).offset(imageFrameInset)
+            view.leading.trailing.equalToSuperview().inset(imageFrameInset)
+        }
+        
         articleCollectionView.snp.makeConstraints { (view) in
-            view.top.equalTo(emailButton.snp.bottom).offset(UIConstants.innerBorderInset)
-            view.bottom.equalToSuperview().inset(UIConstants.innerBorderInset)
-            view.leading.trailing.equalToSuperview()
+            view.top.equalTo(nameLabel.snp.bottom).offset(buttonBorder)
+            view.bottom.equalToSuperview()
+            view.leading.trailing.equalToSuperview().inset(UIConstants.innerBorderInset)
         }
     }
     
     func load(profileImage: UIImage) {
         profileImageView.image = profileImage
-        //profileImageView.resizeImage()
     }
     
     private func loadOfficial () {
         partyIconView.addImageFor(party: official.party)
         nameLabel.text = official.name
         
-        if let email = official.email {
+        if official.email != nil {
             emailButton.isEnabled = true
             emailButton.addTarget(self, action: #selector(emailButtonPressed), for: .touchUpInside)
         }
         
-        if let phoneNumber = official.phone {
+        if official.phone != nil {
             phoneButton.isEnabled = true
             phoneButton.addTarget(self, action: #selector(phoneButtonPressed), for: .touchUpInside)
         }
@@ -147,6 +135,5 @@ class RepRepOfficialView: UIView {
     func phoneButtonPressed() {
         delegate.didPressPhoneButton()
     }
-    
 }
 

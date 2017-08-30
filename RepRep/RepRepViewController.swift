@@ -150,13 +150,9 @@ extension RepRepViewController: UISearchBarDelegate {
         state = .loading
         hideSearchBar()
         if searchBar.text?.characters.count == 5 {
-            APIRequestManager.manager.getRepInfo(zip: searchBar.text!) { repInfo in
-                DispatchQueue.main.async {
-                    if let validRepInfo = repInfo {
-                        self.tableViewDriver = RepRepTableViewDriver(viewModel: validRepInfo)
-                        self.tableView.reloadData()
-                    }
-                }
+            RepInfoViewModel.getOfficials(zip: searchBar.text!) { driver in
+                self.tableViewDriver = driver
+                self.tableView.reloadData()
             }
         }
     }

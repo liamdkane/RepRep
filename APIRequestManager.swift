@@ -30,7 +30,9 @@ class APIRequestManager {
     }
     
     func getArticles(searchTerm: String, callback: @escaping ([Article]?) -> Void) {
-        let endPoint = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=4eb9c9ccae8148b39c2e02cd90ff1e39&q=\(searchTerm)"
+        let urlSearchTerm = searchTerm.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let endPoint = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=4eb9c9ccae8148b39c2e02cd90ff1e39&q=\(urlSearchTerm!)"
+        
         guard let myURL = URL(string: endPoint) else { return }
         let session = URLSession(configuration: .default)
         session.dataTask(with: myURL) { (data, response, error) in
@@ -38,6 +40,7 @@ class APIRequestManager {
             if let error = error {
                 print(error.localizedDescription)
             }
+            
             guard let validData = data else { return }
             var articles: [Article]? = nil
             do {
@@ -50,7 +53,6 @@ class APIRequestManager {
             } catch {
                 print(error.localizedDescription)
             }
-            
             callback(articles)
         }.resume()
     }
