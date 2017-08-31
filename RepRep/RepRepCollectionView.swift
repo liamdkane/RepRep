@@ -20,7 +20,7 @@ class RepRepCollectionView: UICollectionView {
         layout.itemSize = CGSize(width: UIConstants.collectionCellWidth, height: 80)
         super.init(frame: .zero, collectionViewLayout: layout)
         register(RepRepArticleCollectionViewCell.self, forCellWithReuseIdentifier: RepRepArticleCollectionViewCell.id)
-        backgroundColor = UIColor.repCream
+        backgroundColor = .repCream
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
     }

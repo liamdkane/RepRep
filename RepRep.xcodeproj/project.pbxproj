@@ -39,6 +39,8 @@
 		0CCD7F1D1F48804A00B72DA1 /* RepInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD7F1A1F48804A00B72DA1 /* RepInfoViewModel.swift */; };
 		0CCD7F1E1F48804A00B72DA1 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD7F1B1F48804A00B72DA1 /* Address.swift */; };
 		0CCD7F1F1F48804A00B72DA1 /* PollLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD7F1C1F48804A00B72DA1 /* PollLocation.swift */; };
+		0CF9AEA31F584D6400461206 /* RepRepDefaultButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF9AEA21F584D6400461206 /* RepRepDefaultButtonView.swift */; };
+		0CF9AEA51F587F2C00461206 /* UIViewController+ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF9AEA41F587F2C00461206 /* UIViewController+ShowAlert.swift */; };
 		0CFADCB01F55BCAC00A9F7E3 /* RepRepButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFADCAF1F55BCAC00A9F7E3 /* RepRepButton.swift */; };
 		0CFADCB21F55D79A00A9F7E3 /* UIImageView+ResizeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFADCB11F55D79A00A9F7E3 /* UIImageView+ResizeImage.swift */; };
 		0CFADCB41F55E8AA00A9F7E3 /* RepRepBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFADCB31F55E8AA00A9F7E3 /* RepRepBorderView.swift */; };
@@ -109,6 +111,8 @@
 		0CCD7F1A1F48804A00B72DA1 /* RepInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepInfoViewModel.swift; sourceTree = "<group>"; };
 		0CCD7F1B1F48804A00B72DA1 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		0CCD7F1C1F48804A00B72DA1 /* PollLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollLocation.swift; sourceTree = "<group>"; };
+		0CF9AEA21F584D6400461206 /* RepRepDefaultButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepRepDefaultButtonView.swift; sourceTree = "<group>"; };
+		0CF9AEA41F587F2C00461206 /* UIViewController+ShowAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ShowAlert.swift"; sourceTree = "<group>"; };
 		0CFADCAF1F55BCAC00A9F7E3 /* RepRepButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepRepButton.swift; sourceTree = "<group>"; };
 		0CFADCB11F55D79A00A9F7E3 /* UIImageView+ResizeImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+ResizeImage.swift"; sourceTree = "<group>"; };
 		0CFADCB31F55E8AA00A9F7E3 /* RepRepBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepRepBorderView.swift; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 				0CFADCB31F55E8AA00A9F7E3 /* RepRepBorderView.swift */,
 				0C3BFD9F1F5488F300248BF8 /* RepRepContainerView.swift */,
 				0C3BFDA11F548C5600248BF8 /* RepRepActivityIndicatorView.swift */,
+				0CF9AEA21F584D6400461206 /* RepRepDefaultButtonView.swift */,
 				0C3BFDA51F54934100248BF8 /* RepRepTableViewCell.swift */,
 				0C47018F1F54D78900AF2E03 /* RepRepPartyIconView.swift */,
 				0CFADCB71F55F0D700A9F7E3 /* RepRepCollectionView.swift */,
@@ -271,6 +276,7 @@
 				0C9E8EFA1F57034E00C7EEF8 /* UIConstants.swift */,
 				0C47A88A1F53278300D74B31 /* UIColor+RepRepColours.swift */,
 				0C47018C1F54C6A700AF2E03 /* ViewController+ConfigureMainView.swift */,
+				0CF9AEA41F587F2C00461206 /* UIViewController+ShowAlert.swift */,
 				0CFADCB11F55D79A00A9F7E3 /* UIImageView+ResizeImage.swift */,
 				0C3129241F47780000B7CC0C /* Assets.xcassets */,
 				0C3129261F47780000B7CC0C /* LaunchScreen.storyboard */,
@@ -614,6 +620,7 @@
 				0C4701901F54D78900AF2E03 /* RepRepPartyIconView.swift in Sources */,
 				0C4701851F549F4F00AF2E03 /* RepRepTableViewDriver.swift in Sources */,
 				0C3BFDA21F548C5600248BF8 /* RepRepActivityIndicatorView.swift in Sources */,
+				0CF9AEA31F584D6400461206 /* RepRepDefaultButtonView.swift in Sources */,
 				0C4701891F54C23D00AF2E03 /* RepRepDetailViewController.swift in Sources */,
 				0C47A88B1F53278300D74B31 /* UIColor+RepRepColours.swift in Sources */,
 				0CFADCB81F55F0D700A9F7E3 /* RepRepCollectionView.swift in Sources */,
@@ -625,6 +632,7 @@
 				0C3BFDA01F5488F300248BF8 /* RepRepContainerView.swift in Sources */,
 				0CCD7F151F477CA800B72DA1 /* Election.swift in Sources */,
 				0C4701871F54BE5300AF2E03 /* RepRepSectionHeaderConstructor.swift in Sources */,
+				0CF9AEA51F587F2C00461206 /* UIViewController+ShowAlert.swift in Sources */,
 				0C47018D1F54C6A700AF2E03 /* ViewController+ConfigureMainView.swift in Sources */,
 				0CCD7F1E1F48804A00B72DA1 /* Address.swift in Sources */,
 				0CCD7F141F477CA800B72DA1 /* APIRequestManager.swift in Sources */,

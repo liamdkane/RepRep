@@ -53,7 +53,11 @@ class RepRepDetailViewController: UIViewController {
     }
     
     private func getArticles () {
-        APIRequestManager.manager.getArticles(searchTerm: governmentOfficial.name) { (articles) in
+        APIRequestManager.manager.getArticles(searchTerm: governmentOfficial.name) { articles, error in
+            if error != nil {
+                //makeCustomOKAlert(title: error, message: error.localizedDescription)
+            }
+            
             if articles != nil {
                 DispatchQueue.main.async {
                     self.collectionViewDriver = RepRepCollectionViewDriver(articles: articles!)

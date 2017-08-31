@@ -5,7 +5,7 @@ class APIRequestManager {
     static let manager = APIRequestManager()
     private init() {}
     
-    func getRepInfo(zip: String, callback: @escaping(RepInfoViewModel?) -> Void) {
+    func getRepInfo(zip: String, completion: @escaping(RepInfoViewModel?, Error?) -> Void) {
         
         let endpoint = "https://www.googleapis.com/civicinfo/v2/representatives?key=AIzaSyBU0xkqxzxgDJfcSabEFYMXD9M-i8ugdGo&address=\(zip)"
         guard let myURL = URL(string: endpoint) else { return }
@@ -13,23 +13,23 @@ class APIRequestManager {
         session.dataTask(with: myURL) { (data, response, error) in
             
             if let error = error {
+                completion(nil , error)
                 print(error.localizedDescription)
             }
             guard let validData = data else { return }
-            var repInfo: RepInfoViewModel? = nil
             do {
                 let json = try JSONSerialization.jsonObject(with: validData, options: [])
-                if let jsonDict = json as? [String: AnyObject], let validRepInfo = RepInfoViewModel(dict: jsonDict) {
-                    repInfo = validRepInfo
+                if let jsonDict = json as? [String: AnyObject],
+                    let validRepInfo = RepInfoViewModel(dict: jsonDict) {
+                    completion(validRepInfo, nil)
                 }
             } catch {
-                print(error.localizedDescription)
+                completion(nil , error)
             }
-            callback(repInfo)
         }.resume()
     }
     
-    func getArticles(searchTerm: String, callback: @escaping ([Article]?) -> Void) {
+    func getArticles(searchTerm: String, completion: @escaping ([Article]?, Error?) -> Void) {
         let urlSearchTerm = searchTerm.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         let endPoint = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=4eb9c9ccae8148b39c2e02cd90ff1e39&q=\(urlSearchTerm!)"
         
@@ -38,6 +38,7 @@ class APIRequestManager {
         session.dataTask(with: myURL) { (data, response, error) in
             
             if let error = error {
+                completion(nil , error)
                 print(error.localizedDescription)
             }
             
@@ -49,11 +50,12 @@ class APIRequestManager {
                     let responseDict = validJson["response"] as? [String: AnyObject],
                     let jsonDicts = responseDict["docs"] as? [[String: AnyObject]] {
                     articles = Article.getArticles(from: jsonDicts)
+                    completion(articles, nil)
                 }
             } catch {
+                completion(nil , error)
                 print(error.localizedDescription)
             }
-            callback(articles)
         }.resume()
     }
     

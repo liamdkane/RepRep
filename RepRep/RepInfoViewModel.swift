@@ -18,12 +18,10 @@ class RepInfoViewModel {
         self.officials = officials
     }
     
-    static func getOfficials(zip: String, callback: @escaping (RepRepTableViewDriver) -> Void) {
-        APIRequestManager.manager.getRepInfo(zip: zip) { repInfo in
+    static func getOfficials(zip: String, completion: @escaping (RepInfoViewModel?, Error?) -> Void) {
+        APIRequestManager.manager.getRepInfo(zip: zip) { repInfo, error in
             DispatchQueue.main.async {
-                if let validRepInfo = repInfo {
-                    callback(RepRepTableViewDriver(viewModel: validRepInfo))
-                }
+                completion(repInfo, error)
             }
         }
     }

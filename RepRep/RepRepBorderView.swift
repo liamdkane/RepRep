@@ -12,7 +12,7 @@ class RepRepBorderView: UIView {
 
     init() {
         super.init(frame: .zero)
-        backgroundColor = UIColor.repRed
+        backgroundColor = .repRed
     }
     
     required init?(coder aDecoder: NSCoder) {

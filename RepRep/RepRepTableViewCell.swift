@@ -26,7 +26,7 @@ class RepRepTableViewCell: UITableViewCell {
     let partyIconImageView = RepRepPartyIconView()
     var arrowView: UIImageView = {
         let view = UIImageView(image: #imageLiteral(resourceName: "arrow").withRenderingMode(.alwaysTemplate))
-        view.tintColor = UIColor.repGrey
+        view.tintColor = .repGrey
         view.contentMode = .scaleAspectFit
         return view
     }()
@@ -34,7 +34,7 @@ class RepRepTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = UIColor.repCream
+        backgroundColor = .repCream
         setupViewHierarchy()
         configureConstraints()
     }

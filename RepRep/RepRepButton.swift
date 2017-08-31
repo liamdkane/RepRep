@@ -13,13 +13,14 @@ class RepRepButton: UIButton {
     enum RepRepButtonType {
         case phone
         case email
+        case saveDefaults
     }
     
     override var isEnabled: Bool {
         didSet {
             if isEnabled {
                 layer.borderColor = UIColor.repRed.cgColor
-                setTitleColor(UIColor.repRed, for: .normal)
+                setTitleColor(.repRed, for: .normal)
                 layer.borderWidth = 2
             } else {
                 layer.borderColor = UIColor.lightGray.cgColor
@@ -34,12 +35,16 @@ class RepRepButton: UIButton {
         super.init(frame: .zero)
         isEnabled = false
         backgroundColor = .white
-        contentEdgeInsets = UIEdgeInsets(top: 4, left: 6, bottom: 4, right: 6)
+        contentEdgeInsets = UIConstants.buttonInsets
         switch type {
         case .email:
-            setTitle("Email", for: .normal)
+            setTitle(UIConstants.emailButtonText, for: .normal)
         case .phone:
-            setTitle("Call", for: .normal)
+            setTitle(UIConstants.callButtonText, for: .normal)
+        case .saveDefaults:
+            isEnabled = true
+            setTitle(UIConstants.saveDefaultsButtonText, for: .normal)
+            titleLabel?.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
         }
     }
     

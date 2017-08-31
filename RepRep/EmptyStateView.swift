@@ -83,7 +83,7 @@ class EmptyStateView: UIView {
         let stars = [rightStar, leftStar, middleStar]
         stars.forEach {
             instructionsContainerView.addSubview($0)
-            $0.tintColor = UIColor.repRed
+            $0.tintColor = .repRed
         }
         
         middleStar.snp.makeConstraints { (view) in

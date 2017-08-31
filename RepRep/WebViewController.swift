@@ -42,10 +42,13 @@ class WebViewController: UIViewController, UIWebViewDelegate {
         let initialURL = URL(string: address)
         if let url = initialURL {
             let urlRequest = URLRequest(url: url)
-            
             webView.loadRequest(urlRequest)
         }
         
+    }
+    
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        makeCustomOKAlert(title: UIConstants.defaultAlertTitle, message: error.localizedDescription)
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {

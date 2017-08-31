@@ -26,17 +26,17 @@ class RepRepLabel: UILabel {
         
         switch type {
         case .main:
-            textColor = UIColor.black
+            textColor = .black
         case .detail:
-            textColor = UIColor.repGrey
+            textColor = .repGrey
             font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
         case .title:
-            textColor = UIColor.repRed
+            textColor = .repRed
             font = .boldSystemFont(ofSize: UIConstants.titleFontSize)
         case .collectionCellLabel:
             font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
-            backgroundColor = UIColor.repCream
-            textColor = UIColor.repGrey
+            backgroundColor = .repCream
+            textColor = .repGrey
             alpha = 0.7
         }
     }

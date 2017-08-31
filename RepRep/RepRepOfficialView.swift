@@ -46,7 +46,7 @@ class RepRepOfficialView: UIView, UICollectionViewDelegateFlowLayout {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.repCream
+        backgroundColor = .repCream
         profileImageView.contentMode = .scaleAspectFit
         nameLabel.text = "Name"
         configureConstraints()
@@ -73,6 +73,7 @@ class RepRepOfficialView: UIView, UICollectionViewDelegateFlowLayout {
             view.leading.greaterThanOrEqualToSuperview().inset(UIConstants.outerBorderInset)
             view.trailing.lessThanOrEqualToSuperview().inset(UIConstants.outerBorderInset)
             view.height.equalToSuperview().dividedBy(imageHeightScaleFactor)
+            view.centerX.equalToSuperview()
         }
 
         emailButton.snp.makeConstraints({ (view) in

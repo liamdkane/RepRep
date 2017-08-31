@@ -18,19 +18,17 @@ class RepRepViewController: UIViewController {
     }
     
     //MARK: Constants
-    fileprivate let repTitle = "Representative Repository"
-    fileprivate let searchBarMinimizedLength: CGFloat = 60
-    fileprivate let searchBarExtendedLength: CGFloat = {
-        return UIScreen.main.bounds.width/2
-    }()
+    fileprivate let defaultsKey = "ZipCode"
     
     //MARK: Views
     fileprivate var searchIconButton: UIBarButtonItem!
     fileprivate var searchButton: UIBarButtonItem!
     fileprivate var searchBar: ZipSearchBar!
+    fileprivate var defaultView: RepRepDefaultButtonView!
     private let empty = EmptyStateView()
     private let loading = LoadingStateView()
     fileprivate let tableView = RepRepTableView()
+    fileprivate var saveToDefaults: Bool = false
     
     //MARK: Properties
     fileprivate var state: TableViewState = .empty {
@@ -48,11 +46,12 @@ class RepRepViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.repCream
+        view.backgroundColor = .repCream
         edgesForExtendedLayout = []
         configureNavBar()
         configureGesture()
         update(state)
+        checkDefaults()
     }
     
     
@@ -63,9 +62,10 @@ class RepRepViewController: UIViewController {
         
         //UIApplication.shared.statusBarStyle = .lightContent
         
-        navBar.barTintColor = UIColor.repBlue
+        navBar.barTintColor = .repBlue
         let fontAttributes: [String: Any] = [NSForegroundColorAttributeName: UIColor.white,
                                              NSFontAttributeName: UIFont.systemFont(ofSize: UIConstants.titleFontSize)]
+        navBar.isTranslucent = false
         navBar.titleTextAttributes = fontAttributes
         toggleTitle(on: true)
         
@@ -74,7 +74,7 @@ class RepRepViewController: UIViewController {
         
         searchIconButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchIconButtonPressed))
         searchIconButton.tintColor = .white
-
+        
         navigationItem.leftBarButtonItem = searchIconButton
         
         searchBar = ZipSearchBar(frame: CGRect(x: 12, y:  0, width: 60, height: 44.0))
@@ -88,12 +88,26 @@ class RepRepViewController: UIViewController {
     }
     
     @objc private func searchButtonPressed() {
-        state = .loading
-        hideSearchBar()
-        if searchBar.text?.characters.count == 5 {
-            RepInfoViewModel.getOfficials(zip: searchBar.text!) { driver in
-                self.tableViewDriver = driver
-                self.tableView.reloadData()
+        hideSearchBar { [weak self] in
+            if self!.searchBar.text?.characters.count == 5 {
+                self!.handleSaveToDefaultsValue()
+                self!.getOfficials(zip: self!.searchBar.text!)
+            } else {
+                self!.makeCustomOKAlert(title: UIConstants.defaultAlertTitle, message: UIConstants.invalidZipAlertMessage)
+            }
+        }
+    }
+    
+    fileprivate func getOfficials(zip: String) {
+        self.state = .loading
+        RepInfoViewModel.getOfficials(zip: zip) { [weak self] repInfo, error in
+            if let validRepInfo = repInfo {
+                let driver = RepRepTableViewDriver(viewModel: validRepInfo)
+                self!.tableViewDriver = driver
+                self!.tableView.reloadData()
+            }
+            if error != nil {
+                self!.makeCustomOKAlert(title: UIConstants.defaultAlertTitle, message: error!.localizedDescription)
             }
         }
 
@@ -123,11 +137,12 @@ extension RepRepViewController: UISearchBarDelegate {
         toggleTitle(on: false)
         navigationItem.setLeftBarButton(nil, animated: false)
         navigationItem.setRightBarButton(searchButton, animated: true)
-        self.searchBar.prepareForFadeAnimation(fade: false)
+        searchBar.prepareForFadeAnimation(fade: false)
+        presentDefaultView()
         
-        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0.05, options: [], animations: {
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: UIConstants.searchBarAnimationDuration, delay: 0.05, options: [], animations: {
             
-            let desiredWidth = self.searchBarExtendedLength
+            let desiredWidth = UIConstants.searchBarExtendedLength
             self.adjustSearchBar(width: desiredWidth)
             self.searchBar.layoutIfNeeded()
             
@@ -136,34 +151,37 @@ extension RepRepViewController: UISearchBarDelegate {
         }
     }
     
-    fileprivate func hideSearchBar() {
+    fileprivate func hideSearchBar(completion: @escaping () -> Void) {
         searchBar.prepareForFadeAnimation(fade: true)
         searchBar.textView?.endFloatingCursor()
-        self.navigationItem.setRightBarButton(nil, animated: true)
-
-        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0, options: [], animations: {
-            self.adjustSearchBar(width: self.searchBarMinimizedLength)
+        navigationItem.setRightBarButton(nil, animated: true)
+        defaultView.removeFromSuperview()
+        
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: UIConstants.searchBarAnimationDuration,
+                                                       delay: 0,
+                                                       options: [],
+                                                       animations: {
+                                                        self.adjustSearchBar(width: UIConstants.searchBarMinimizedLength)
+                                                        
         }, completion: { finished in
             self.searchBar.isHidden = true
             self.searchBar.resignFirstResponder()
             self.navigationItem.setLeftBarButton(self.searchIconButton, animated: false)
             self.toggleTitle(on: true)
+            completion()
         })
     }
     
     private func adjustSearchBar(width: CGFloat) {
-        self.searchBar.frame = CGRect(x: self.searchBar.frame.origin.x,
-                                      y: self.searchBar.frame.origin.y,
-                                      width: width,
-                                      height: self.searchBar.frame.height)
-        self.searchBar.layoutIfNeeded()
+        searchBar.frame = CGRect(x: self.searchBar.frame.origin.x,
+                                 y: self.searchBar.frame.origin.y,
+                                 width: width,
+                                 height: self.searchBar.frame.height)
+        searchBar.layoutIfNeeded()
     }
     
     fileprivate func toggleTitle(on: Bool) {
-        navigationItem.title = on ? repTitle : ""
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        navigationItem.title = on ? UIConstants.repTitle : ""
     }
 }
 
@@ -195,9 +213,41 @@ extension RepRepViewController: UIGestureRecognizerDelegate {
     @objc private func handle(tap: UITapGestureRecognizer) {
         if searchBar.isFirstResponder {
             tap.cancelsTouchesInView = true
-            hideSearchBar()
+            hideSearchBar{}
         } else {
             tap.cancelsTouchesInView = false
+        }
+    }
+}
+
+extension RepRepViewController: DefaultButtonDelegate {
+    
+    func presentDefaultView() {
+        defaultView = RepRepDefaultButtonView()
+        view.addSubview(defaultView)
+        
+        defaultView.delegate = self
+        defaultView.snp.makeConstraints { (view) in
+            view.top.bottom.leading.trailing.equalToSuperview()
+            
+        }
+    }
+    
+    func defaultButtonPressed(save: Bool) {
+        saveToDefaults = save
+    }
+    
+    func handleSaveToDefaultsValue () {
+        if saveToDefaults {
+            let defaults = UserDefaults.standard
+            defaults.set(searchBar.text, forKey: defaultsKey)
+        }
+    }
+    
+    func checkDefaults () {
+        let defaults = UserDefaults.standard
+        if let zipCode = defaults.string(forKey: defaultsKey) {
+            getOfficials(zip: zipCode)
         }
     }
 }

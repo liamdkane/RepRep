@@ -30,7 +30,8 @@ class LoadingStateView: UIVisualEffectView {
     private func configureConstraints() {
         addSubview(containerView)
         containerView.snp.makeConstraints { (view) in
-            view.top.leading.trailing.equalToSuperview().inset(UIConstants.outerBorderInset)
+            view.leading.trailing.equalToSuperview().inset(UIConstants.outerBorderInset)
+            view.centerY.equalToSuperview()
         }
         
         containerView.addSubview(loadingLabel)

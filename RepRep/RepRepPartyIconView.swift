@@ -12,7 +12,7 @@ class RepRepPartyIconView: UIImageView {
     
     init() {
         super.init(frame: .zero)
-        backgroundColor = UIColor.repCream
+        backgroundColor = .repCream
         contentMode = .center
         layer.cornerRadius = UIConstants.roundCornerValue
         layer.borderColor = UIColor.repBlue.cgColor

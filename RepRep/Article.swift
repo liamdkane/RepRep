@@ -37,7 +37,7 @@ class Article {
             return nil
         }
         if let multimedia = dict["multimedia"] as? [[String: AnyObject]],
-            let thumbImageDict = multimedia.last,
+            let thumbImageDict = multimedia.first,
             let thumbURL = thumbImageDict["url"] as? String {
             self.thumbURL = thumbURL
         } else {

@@ -39,9 +39,6 @@ class RepRepArticleCollectionViewCell: UICollectionViewCell {
     
     private func inputArticle() {
         articleHeadlineLabel.text = article.headline
-        let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.repGrey.withAlphaComponent(0), UIColor.repGrey]
-        articleHeadlineLabel.layer.addSublayer(gradient)
         articleHeadlineLabel.layoutIfNeeded()
     }
     
