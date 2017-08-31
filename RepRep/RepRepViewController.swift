@@ -58,9 +58,9 @@ class RepRepViewController: UIViewController {
     //MARK: UI Functions
     private func configureNavBar() {
         
-        guard let navBar = navigationController?.navigationBar else { return }
+        navigationItem.hidesBackButton = true
         
-        //UIApplication.shared.statusBarStyle = .lightContent
+        guard let navBar = navigationController?.navigationBar else { return }
         
         navBar.barTintColor = .repBlue
         let fontAttributes: [String: Any] = [NSForegroundColorAttributeName: UIColor.white,

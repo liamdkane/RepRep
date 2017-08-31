@@ -11,6 +11,7 @@ import SnapKit
 import WebKit
 import AudioToolbox
 
+
 class WebViewController: UIViewController, UIWebViewDelegate {
     
     var loadingView = LoadingStateView()
@@ -33,8 +34,17 @@ class WebViewController: UIViewController, UIWebViewDelegate {
         webView.delegate = self
         
         loadArticle()
-        title = "Articles"
-        navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+    }
+    
+    func configureNavBar() {
+        let customBackButton = UIBarButtonItem(image: #imageLiteral(resourceName: "backArrow"), style: .plain, target: self,
+                                               action: #selector(backButtonPressed))
+        navigationItem.setLeftBarButton(customBackButton, animated: true)
+        title = "Article"
+    }
+    
+    @objc private func backButtonPressed() {
+        navigationController?.popViewController(animated: true)
     }
     
     func loadArticle() {

@@ -35,11 +35,22 @@ class RepRepDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView(officialView)
+        configureNavBar()
+    }
+    
+    private func configureNavBar() {
+        let customBackButton = UIBarButtonItem(image: #imageLiteral(resourceName: "backArrow"), style: .plain, target: self,
+                                               action: #selector(backButtonPressed))
+        navigationItem.setLeftBarButton(customBackButton, animated: true)
+        
         navigationController?.topViewController?.title = detailTitle
-        navigationItem.backBarButtonItem?.title = nil
         edgesForExtendedLayout = []
-        dump(governmentOfficial.channels)
         navigationController?.navigationBar.tintColor = .white
+
+    }
+    
+    @objc private func backButtonPressed() {
+        navigationController?.popViewController(animated: true)
     }
     
     private func getImage() {
