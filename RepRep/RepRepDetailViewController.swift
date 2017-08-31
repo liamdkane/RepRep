@@ -11,18 +11,19 @@ import MessageUI
 
 typealias RepRepOfficialButtonDelegate = EmailButtonDelegate & PhoneButtonDelegate & MFMailComposeViewControllerDelegate
 
-class RepRepDetailViewController: UIViewController, RepRepOfficialButtonDelegate, UICollectionViewDelegate {
+class RepRepDetailViewController: UIViewController {
     
-    let governmentOfficial: GovernmentOfficial
-    let officialView = RepRepOfficialView()
-    var collectionViewDriver: RepRepCollectionViewDriver!
+    fileprivate let governmentOfficial: GovernmentOfficial
+    private let officialView = RepRepOfficialView()
+    fileprivate var collectionViewDriver: RepRepCollectionViewDriver!
+    private let detailTitle: String
     
     init(for official: GovernmentOfficial, title: String) {
         governmentOfficial = official
+        detailTitle = title
         super.init(nibName: nil, bundle: nil)
         officialView.official = official
         officialView.delegate = self
-        navigationController?.title = title
         getImage()
         getArticles()
     }
@@ -34,14 +35,14 @@ class RepRepDetailViewController: UIViewController, RepRepOfficialButtonDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView(officialView)
+        navigationController?.topViewController?.title = detailTitle
+        navigationItem.backBarButtonItem?.title = nil
         edgesForExtendedLayout = []
         dump(governmentOfficial.channels)
         navigationController?.navigationBar.tintColor = .white
-        navigationController?.title = governmentOfficial.name
-
     }
     
-    func getImage() {
+    private func getImage() {
         APIRequestManager.manager.getImage(APIEndpoint: governmentOfficial.photoURL ?? "") { (data) in
             if data != nil {
                 DispatchQueue.main.async {
@@ -51,7 +52,7 @@ class RepRepDetailViewController: UIViewController, RepRepOfficialButtonDelegate
         }
     }
     
-    func getArticles () {
+    private func getArticles () {
         APIRequestManager.manager.getArticles(searchTerm: governmentOfficial.name) { (articles) in
             if articles != nil {
                 DispatchQueue.main.async {
@@ -63,6 +64,10 @@ class RepRepDetailViewController: UIViewController, RepRepOfficialButtonDelegate
             }
         }
     }
+}
+
+extension RepRepDetailViewController: RepRepOfficialButtonDelegate {
+    
     
     //MARK: RepRepOfficialButtonDelegate Methods
     
@@ -88,15 +93,16 @@ class RepRepDetailViewController: UIViewController, RepRepOfficialButtonDelegate
     
     func configuredMailComposeViewController() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
-        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
-        
+        mailComposerVC.mailComposeDelegate = self
         mailComposerVC.setToRecipients([governmentOfficial.email!])
         mailComposerVC.setSubject("Letter from a Constituent")
         mailComposerVC.setMessageBody("\(governmentOfficial.name), \n\n ", isHTML: false)
         
         return mailComposerVC
-    }   
-    
+    }
+}
+
+extension RepRepDetailViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let webVC = WebViewController()
         let cell = collectionView.cellForItem(at: indexPath) as! RepRepArticleCollectionViewCell
@@ -104,4 +110,5 @@ class RepRepDetailViewController: UIViewController, RepRepOfficialButtonDelegate
         
         navigationController?.pushViewController(webVC, animated: true)
     }
+
 }

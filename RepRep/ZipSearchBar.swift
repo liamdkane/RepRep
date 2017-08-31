@@ -26,6 +26,8 @@ class ZipSearchBar: UISearchBar {
         contentMode = .left
         textView?.textColor = .black
         tintColor = .white
+        keyboardType = .numberPad
+        
         removeLayerAnimationsRecursively()
     }
     

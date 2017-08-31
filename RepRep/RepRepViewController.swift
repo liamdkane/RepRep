@@ -21,10 +21,11 @@ class RepRepViewController: UIViewController {
     fileprivate let repTitle = "Representative Repository"
     fileprivate let searchBarMinimizedLength: CGFloat = 60
     fileprivate let searchBarExtendedLength: CGFloat = {
-        return UIScreen.main.bounds.width - 42
+        return UIScreen.main.bounds.width/2
     }()
     
     //MARK: Views
+    fileprivate var searchIconButton: UIBarButtonItem!
     fileprivate var searchButton: UIBarButtonItem!
     fileprivate var searchBar: ZipSearchBar!
     private let empty = EmptyStateView()
@@ -68,19 +69,34 @@ class RepRepViewController: UIViewController {
         navBar.titleTextAttributes = fontAttributes
         toggleTitle(on: true)
         
-        searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchButtonPressed))
+        searchButton = UIBarButtonItem(title: "Search", style: UIBarButtonItemStyle.plain, target: self, action: #selector(searchButtonPressed))
         searchButton.tintColor = .white
-        navigationItem.leftBarButtonItem = searchButton
+        
+        searchIconButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchIconButtonPressed))
+        searchIconButton.tintColor = .white
+
+        navigationItem.leftBarButtonItem = searchIconButton
         
         searchBar = ZipSearchBar(frame: CGRect(x: 12, y:  0, width: 60, height: 44.0))
         navBar.addSubview(searchBar)
         searchBar.isHidden = true
         searchBar.delegate = self
-        
+    }
+    
+    @objc private func searchIconButtonPressed() {
+        showSearchBar()
     }
     
     @objc private func searchButtonPressed() {
-        showSearchBar()
+        state = .loading
+        hideSearchBar()
+        if searchBar.text?.characters.count == 5 {
+            RepInfoViewModel.getOfficials(zip: searchBar.text!) { driver in
+                self.tableViewDriver = driver
+                self.tableView.reloadData()
+            }
+        }
+
     }
     
     private func update(_ state: TableViewState) {
@@ -106,15 +122,15 @@ extension RepRepViewController: UISearchBarDelegate {
         searchBar.isHidden = false
         toggleTitle(on: false)
         navigationItem.setLeftBarButton(nil, animated: false)
+        navigationItem.setRightBarButton(searchButton, animated: true)
         self.searchBar.prepareForFadeAnimation(fade: false)
         
         UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0.05, options: [], animations: {
             
-            //
-            let desiredWidth = UIScreen.main.bounds.width - 42
+            let desiredWidth = self.searchBarExtendedLength
             self.adjustSearchBar(width: desiredWidth)
-            
             self.searchBar.layoutIfNeeded()
+            
         }) { (finished) in
             self.searchBar.becomeFirstResponder()
         }
@@ -123,13 +139,14 @@ extension RepRepViewController: UISearchBarDelegate {
     fileprivate func hideSearchBar() {
         searchBar.prepareForFadeAnimation(fade: true)
         searchBar.textView?.endFloatingCursor()
-        
+        self.navigationItem.setRightBarButton(nil, animated: true)
+
         UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0, options: [], animations: {
             self.adjustSearchBar(width: self.searchBarMinimizedLength)
         }, completion: { finished in
             self.searchBar.isHidden = true
             self.searchBar.resignFirstResponder()
-            self.navigationItem.setLeftBarButton(self.searchButton, animated: false)
+            self.navigationItem.setLeftBarButton(self.searchIconButton, animated: false)
             self.toggleTitle(on: true)
         })
     }
@@ -144,17 +161,6 @@ extension RepRepViewController: UISearchBarDelegate {
     
     fileprivate func toggleTitle(on: Bool) {
         navigationItem.title = on ? repTitle : ""
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        state = .loading
-        hideSearchBar()
-        if searchBar.text?.characters.count == 5 {
-            RepInfoViewModel.getOfficials(zip: searchBar.text!) { driver in
-                self.tableViewDriver = driver
-                self.tableView.reloadData()
-            }
-        }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

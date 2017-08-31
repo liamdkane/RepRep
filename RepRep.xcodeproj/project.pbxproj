@@ -182,22 +182,11 @@
 		0C31291C1F47780000B7CC0C /* RepRep */ = {
 			isa = PBXGroup;
 			children = (
-				0CCD7F0E1F477CA800B72DA1 /* APIRequestManager.swift */,
-				0C55E5CB1F489AEE00F908D1 /* RepRepViewController.swift */,
-				0C4701841F549F4F00AF2E03 /* RepRepTableViewDriver.swift */,
-				0CFADCB91F55F15900A9F7E3 /* RepRepCollectionViewDriver.swift */,
-				0C4701881F54C23D00AF2E03 /* RepRepDetailViewController.swift */,
-				0C9E8EFC1F57347400C7EEF8 /* WebViewController.swift */,
-				0C9E8EFA1F57034E00C7EEF8 /* UIConstants.swift */,
-				0C31291D1F47780000B7CC0C /* AppDelegate.swift */,
+				0C9E8F021F573F0D00C7EEF8 /* State Managers */,
+				0C9E8F001F573EF900C7EEF8 /* ViewControllers */,
 				0C55E5CD1F48AA1C00F908D1 /* Models */,
 				0C3BFD9E1F54885700248BF8 /* Views */,
-				0C47A88A1F53278300D74B31 /* UIColor+RepRepColours.swift */,
-				0C47018C1F54C6A700AF2E03 /* ViewController+ConfigureMainView.swift */,
-				0CFADCB11F55D79A00A9F7E3 /* UIImageView+ResizeImage.swift */,
-				0C3129241F47780000B7CC0C /* Assets.xcassets */,
-				0C3129261F47780000B7CC0C /* LaunchScreen.storyboard */,
-				0C3129291F47780000B7CC0C /* Info.plist */,
+				0C9E8EFF1F573EE100C7EEF8 /* Supporting Files */,
 			);
 			path = RepRep;
 			sourceTree = "<group>";
@@ -225,17 +214,17 @@
 			children = (
 				0C47018E1F54CD1200AF2E03 /* Main Views */,
 				0C55E5D41F4B300F00F908D1 /* ZipSearchBar.swift */,
-				0CFADCAF1F55BCAC00A9F7E3 /* RepRepButton.swift */,
-				0CFADCB71F55F0D700A9F7E3 /* RepRepCollectionView.swift */,
 				0C4701861F54BE5300AF2E03 /* RepRepSectionHeaderConstructor.swift */,
+				0C3BFD961F533E6200248BF8 /* RepRepLabel.swift */,
+				0CFADCAF1F55BCAC00A9F7E3 /* RepRepButton.swift */,
 				0CFADCB31F55E8AA00A9F7E3 /* RepRepBorderView.swift */,
 				0C3BFD9F1F5488F300248BF8 /* RepRepContainerView.swift */,
-				0C3BFD981F53517900248BF8 /* StarView.swift */,
 				0C3BFDA11F548C5600248BF8 /* RepRepActivityIndicatorView.swift */,
 				0C3BFDA51F54934100248BF8 /* RepRepTableViewCell.swift */,
 				0C47018F1F54D78900AF2E03 /* RepRepPartyIconView.swift */,
-				0C3BFD961F533E6200248BF8 /* RepRepLabel.swift */,
+				0CFADCB71F55F0D700A9F7E3 /* RepRepCollectionView.swift */,
 				0CFADCB51F55EF0B00A9F7E3 /* RepRepArticleCollectionViewCell.swift */,
+				0C3BFD981F53517900248BF8 /* StarView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -254,11 +243,8 @@
 		0C55E5CD1F48AA1C00F908D1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0CCD7F0F1F477CA800B72DA1 /* Election.swift */,
+				0C9E8EFE1F573EBC00C7EEF8 /* Future Iterations Models */,
 				0C55E5D01F48BA4D00F908D1 /* Article.swift */,
-				0CCD7F121F477CA800B72DA1 /* StateAdminBody.swift */,
-				0CCD7F1C1F48804A00B72DA1 /* PollLocation.swift */,
-				0CCD7F131F477CA800B72DA1 /* VoterInfo.swift */,
 				0CCD7F1A1F48804A00B72DA1 /* RepInfoViewModel.swift */,
 				0CFADCBF1F55FC6900A9F7E3 /* Office.swift */,
 				0CFADCBD1F55FC4D00A9F7E3 /* Government Official.swift */,
@@ -266,6 +252,52 @@
 				0CCD7F1B1F48804A00B72DA1 /* Address.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		0C9E8EFE1F573EBC00C7EEF8 /* Future Iterations Models */ = {
+			isa = PBXGroup;
+			children = (
+				0CCD7F0F1F477CA800B72DA1 /* Election.swift */,
+				0CCD7F121F477CA800B72DA1 /* StateAdminBody.swift */,
+				0CCD7F1C1F48804A00B72DA1 /* PollLocation.swift */,
+				0CCD7F131F477CA800B72DA1 /* VoterInfo.swift */,
+			);
+			name = "Future Iterations Models";
+			sourceTree = "<group>";
+		};
+		0C9E8EFF1F573EE100C7EEF8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0C9E8EFA1F57034E00C7EEF8 /* UIConstants.swift */,
+				0C47A88A1F53278300D74B31 /* UIColor+RepRepColours.swift */,
+				0C47018C1F54C6A700AF2E03 /* ViewController+ConfigureMainView.swift */,
+				0CFADCB11F55D79A00A9F7E3 /* UIImageView+ResizeImage.swift */,
+				0C3129241F47780000B7CC0C /* Assets.xcassets */,
+				0C3129261F47780000B7CC0C /* LaunchScreen.storyboard */,
+				0C3129291F47780000B7CC0C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0C9E8F001F573EF900C7EEF8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0C55E5CB1F489AEE00F908D1 /* RepRepViewController.swift */,
+				0C4701881F54C23D00AF2E03 /* RepRepDetailViewController.swift */,
+				0C9E8EFC1F57347400C7EEF8 /* WebViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		0C9E8F021F573F0D00C7EEF8 /* State Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0CCD7F0E1F477CA800B72DA1 /* APIRequestManager.swift */,
+				0C4701841F549F4F00AF2E03 /* RepRepTableViewDriver.swift */,
+				0CFADCB91F55F15900A9F7E3 /* RepRepCollectionViewDriver.swift */,
+				0C31291D1F47780000B7CC0C /* AppDelegate.swift */,
+			);
+			name = "State Managers";
 			sourceTree = "<group>";
 		};
 		62E3D4F6269003BE8A2B2627 /* Pods */ = {

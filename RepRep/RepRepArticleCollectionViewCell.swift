@@ -29,7 +29,8 @@ class RepRepArticleCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureConstraints()
-        articleImageView.contentMode = .scaleToFill
+        articleImageView.contentMode = .scaleAspectFill
+        clipsToBounds = true
     }
     
     required init?(coder aDecoder: NSCoder) {
