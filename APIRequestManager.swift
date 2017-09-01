@@ -5,39 +5,43 @@ class APIRequestManager {
     static let manager = APIRequestManager()
     private init() {}
     
-    func getRepInfo(endPoint: String, callback: @escaping (RepInfo?) -> Void) {
+    func getRepInfo(zip: String, completion: @escaping(RepInfoViewModel?, Error?) -> Void) {
+        
+        let endpoint = "https://www.googleapis.com/civicinfo/v2/representatives?key=AIzaSyBU0xkqxzxgDJfcSabEFYMXD9M-i8ugdGo&address=\(zip)"
+        guard let myURL = URL(string: endpoint) else { return }
+        let session = URLSession(configuration: .default)
+        session.dataTask(with: myURL) { (data, response, error) in
+            
+            if let error = error {
+                completion(nil , error)
+                print(error.localizedDescription)
+            }
+            guard let validData = data else { return }
+            do {
+                let json = try JSONSerialization.jsonObject(with: validData, options: [])
+                if let jsonDict = json as? [String: AnyObject],
+                    let validRepInfo = RepInfoViewModel(dict: jsonDict) {
+                    completion(validRepInfo, nil)
+                }
+            } catch {
+                completion(nil , error)
+            }
+        }.resume()
+    }
+    
+    func getArticles(searchTerm: String, completion: @escaping ([Article]?, Error?) -> Void) {
+        let urlSearchTerm = searchTerm.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let endPoint = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=4eb9c9ccae8148b39c2e02cd90ff1e39&q=\(urlSearchTerm!)"
         
         guard let myURL = URL(string: endPoint) else { return }
         let session = URLSession(configuration: .default)
         session.dataTask(with: myURL) { (data, response, error) in
             
             if let error = error {
-                print(error.localizedDescription)
-            }
-            guard let validData = data else { return }
-            var repInfo: RepInfo? = nil
-            do {
-                let json = try JSONSerialization.jsonObject(with: validData, options: [])
-                if let jsonDict = json as? [String: AnyObject], let validRepInfo = RepInfo(dict: jsonDict) {
-                    repInfo = validRepInfo
-                }
-            } catch {
+                completion(nil , error)
                 print(error.localizedDescription)
             }
             
-            callback(repInfo)
-            }.resume()
-    }
-    
-    func getArticles(searchTerm: String, callback: @escaping ([Article]?) -> Void) {
-        let endPoint = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=4eb9c9ccae8148b39c2e02cd90ff1e39&q=\(searchTerm)"
-        guard let myURL = URL(string: endPoint) else { return }
-        let session = URLSession(configuration: .default)
-        session.dataTask(with: myURL) { (data, response, error) in
-            
-            if let error = error {
-                print(error.localizedDescription)
-            }
             guard let validData = data else { return }
             var articles: [Article]? = nil
             do {
@@ -46,12 +50,12 @@ class APIRequestManager {
                     let responseDict = validJson["response"] as? [String: AnyObject],
                     let jsonDicts = responseDict["docs"] as? [[String: AnyObject]] {
                     articles = Article.getArticles(from: jsonDicts)
+                    completion(articles, nil)
                 }
             } catch {
+                completion(nil , error)
                 print(error.localizedDescription)
             }
-            
-            callback(articles)
         }.resume()
     }
     

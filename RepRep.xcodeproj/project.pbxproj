@@ -12,21 +12,44 @@
 		0C3129281F47780000B7CC0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C3129261F47780000B7CC0C /* LaunchScreen.storyboard */; };
 		0C3129331F47780000B7CC0C /* RepRepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3129321F47780000B7CC0C /* RepRepTests.swift */; };
 		0C31293E1F47780000B7CC0C /* RepRepUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C31293D1F47780000B7CC0C /* RepRepUITests.swift */; };
-		0C3BFD971F533E6200248BF8 /* RepLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3BFD961F533E6200248BF8 /* RepLabel.swift */; };
+		0C3BFD971F533E6200248BF8 /* RepRepLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3BFD961F533E6200248BF8 /* RepRepLabel.swift */; };
 		0C3BFD991F53517900248BF8 /* StarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3BFD981F53517900248BF8 /* StarView.swift */; };
+		0C3BFD9D1F54884D00248BF8 /* LoadingStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3BFD9C1F54884D00248BF8 /* LoadingStateView.swift */; };
+		0C3BFDA01F5488F300248BF8 /* RepRepContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3BFD9F1F5488F300248BF8 /* RepRepContainerView.swift */; };
+		0C3BFDA21F548C5600248BF8 /* RepRepActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3BFDA11F548C5600248BF8 /* RepRepActivityIndicatorView.swift */; };
+		0C3BFDA41F54933200248BF8 /* RepRepTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3BFDA31F54933200248BF8 /* RepRepTableView.swift */; };
+		0C3BFDA61F54934100248BF8 /* RepRepTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3BFDA51F54934100248BF8 /* RepRepTableViewCell.swift */; };
+		0C4701851F549F4F00AF2E03 /* RepRepTableViewDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4701841F549F4F00AF2E03 /* RepRepTableViewDriver.swift */; };
+		0C4701871F54BE5300AF2E03 /* RepRepSectionHeaderConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4701861F54BE5300AF2E03 /* RepRepSectionHeaderConstructor.swift */; };
+		0C4701891F54C23D00AF2E03 /* RepRepDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4701881F54C23D00AF2E03 /* RepRepDetailViewController.swift */; };
+		0C47018B1F54C56B00AF2E03 /* RepRepOfficialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C47018A1F54C56B00AF2E03 /* RepRepOfficialView.swift */; };
+		0C47018D1F54C6A700AF2E03 /* ViewController+ConfigureMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C47018C1F54C6A700AF2E03 /* ViewController+ConfigureMainView.swift */; };
+		0C4701901F54D78900AF2E03 /* RepRepPartyIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C47018F1F54D78900AF2E03 /* RepRepPartyIconView.swift */; };
 		0C47A88B1F53278300D74B31 /* UIColor+RepRepColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C47A88A1F53278300D74B31 /* UIColor+RepRepColours.swift */; };
-		0C55E5CC1F489AEE00F908D1 /* RepTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C55E5CB1F489AEE00F908D1 /* RepTableViewController.swift */; };
+		0C55E5CC1F489AEE00F908D1 /* RepRepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C55E5CB1F489AEE00F908D1 /* RepRepViewController.swift */; };
 		0C55E5D11F48BA4D00F908D1 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C55E5D01F48BA4D00F908D1 /* Article.swift */; };
 		0C55E5D51F4B300F00F908D1 /* ZipSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C55E5D41F4B300F00F908D1 /* ZipSearchBar.swift */; };
 		0C55E5D71F4CBB7000F908D1 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C55E5D61F4CBB7000F908D1 /* EmptyStateView.swift */; };
-		0CCD7F141F477CA800B72DA1 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD7F0E1F477CA800B72DA1 /* APIManager.swift */; };
+		0C9E8EFB1F57034E00C7EEF8 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9E8EFA1F57034E00C7EEF8 /* UIConstants.swift */; };
+		0C9E8EFD1F57347400C7EEF8 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9E8EFC1F57347400C7EEF8 /* WebViewController.swift */; };
+		0CCD7F141F477CA800B72DA1 /* APIRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD7F0E1F477CA800B72DA1 /* APIRequestManager.swift */; };
 		0CCD7F151F477CA800B72DA1 /* Election.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD7F0F1F477CA800B72DA1 /* Election.swift */; };
-		0CCD7F171F477CA800B72DA1 /* RepDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD7F111F477CA800B72DA1 /* RepDetailsViewController.swift */; };
-		0CCD7F181F477CA800B72DA1 /* VoteAdminBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD7F121F477CA800B72DA1 /* VoteAdminBody.swift */; };
+		0CCD7F181F477CA800B72DA1 /* StateAdminBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD7F121F477CA800B72DA1 /* StateAdminBody.swift */; };
 		0CCD7F191F477CA800B72DA1 /* VoterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD7F131F477CA800B72DA1 /* VoterInfo.swift */; };
-		0CCD7F1D1F48804A00B72DA1 /* RepInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD7F1A1F48804A00B72DA1 /* RepInfo.swift */; };
+		0CCD7F1D1F48804A00B72DA1 /* RepInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD7F1A1F48804A00B72DA1 /* RepInfoViewModel.swift */; };
 		0CCD7F1E1F48804A00B72DA1 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD7F1B1F48804A00B72DA1 /* Address.swift */; };
 		0CCD7F1F1F48804A00B72DA1 /* PollLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD7F1C1F48804A00B72DA1 /* PollLocation.swift */; };
+		0CF9AEA31F584D6400461206 /* RepRepDefaultButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF9AEA21F584D6400461206 /* RepRepDefaultButtonView.swift */; };
+		0CF9AEA51F587F2C00461206 /* UIViewController+ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF9AEA41F587F2C00461206 /* UIViewController+ShowAlert.swift */; };
+		0CFADCB01F55BCAC00A9F7E3 /* RepRepButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFADCAF1F55BCAC00A9F7E3 /* RepRepButton.swift */; };
+		0CFADCB21F55D79A00A9F7E3 /* UIImageView+ResizeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFADCB11F55D79A00A9F7E3 /* UIImageView+ResizeImage.swift */; };
+		0CFADCB41F55E8AA00A9F7E3 /* RepRepBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFADCB31F55E8AA00A9F7E3 /* RepRepBorderView.swift */; };
+		0CFADCB61F55EF0B00A9F7E3 /* RepRepArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFADCB51F55EF0B00A9F7E3 /* RepRepArticleCollectionViewCell.swift */; };
+		0CFADCB81F55F0D700A9F7E3 /* RepRepCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFADCB71F55F0D700A9F7E3 /* RepRepCollectionView.swift */; };
+		0CFADCBA1F55F15900A9F7E3 /* RepRepCollectionViewDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFADCB91F55F15900A9F7E3 /* RepRepCollectionViewDriver.swift */; };
+		0CFADCBC1F55FC3700A9F7E3 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFADCBB1F55FC3700A9F7E3 /* Channel.swift */; };
+		0CFADCBE1F55FC4D00A9F7E3 /* Government Official.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFADCBD1F55FC4D00A9F7E3 /* Government Official.swift */; };
+		0CFADCC01F55FC6900A9F7E3 /* Office.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFADCBF1F55FC6900A9F7E3 /* Office.swift */; };
 		0EE00BC204FEFF785FE306BE /* Pods_RepRepUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A95AA4F8C3F8597EF73C0BD0 /* Pods_RepRepUITests.framework */; };
 		53EE648A0C4A464472F9D06A /* Pods_RepRep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A02ADB53D1F5ACCE3C1758F8 /* Pods_RepRep.framework */; };
 		8A8B484EA136DD7737903CE2 /* Pods_RepRepTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F446992B4718142BC94D31 /* Pods_RepRepTests.framework */; };
@@ -61,21 +84,44 @@
 		0C3129391F47780000B7CC0C /* RepRepUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RepRepUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C31293D1F47780000B7CC0C /* RepRepUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepRepUITests.swift; sourceTree = "<group>"; };
 		0C31293F1F47780000B7CC0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0C3BFD961F533E6200248BF8 /* RepLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepLabel.swift; sourceTree = "<group>"; };
+		0C3BFD961F533E6200248BF8 /* RepRepLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepRepLabel.swift; sourceTree = "<group>"; };
 		0C3BFD981F53517900248BF8 /* StarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarView.swift; sourceTree = "<group>"; };
+		0C3BFD9C1F54884D00248BF8 /* LoadingStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingStateView.swift; sourceTree = "<group>"; };
+		0C3BFD9F1F5488F300248BF8 /* RepRepContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepRepContainerView.swift; sourceTree = "<group>"; };
+		0C3BFDA11F548C5600248BF8 /* RepRepActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepRepActivityIndicatorView.swift; sourceTree = "<group>"; };
+		0C3BFDA31F54933200248BF8 /* RepRepTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepRepTableView.swift; sourceTree = "<group>"; };
+		0C3BFDA51F54934100248BF8 /* RepRepTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepRepTableViewCell.swift; sourceTree = "<group>"; };
+		0C4701841F549F4F00AF2E03 /* RepRepTableViewDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepRepTableViewDriver.swift; sourceTree = "<group>"; };
+		0C4701861F54BE5300AF2E03 /* RepRepSectionHeaderConstructor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepRepSectionHeaderConstructor.swift; sourceTree = "<group>"; };
+		0C4701881F54C23D00AF2E03 /* RepRepDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepRepDetailViewController.swift; sourceTree = "<group>"; };
+		0C47018A1F54C56B00AF2E03 /* RepRepOfficialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepRepOfficialView.swift; sourceTree = "<group>"; };
+		0C47018C1F54C6A700AF2E03 /* ViewController+ConfigureMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+ConfigureMainView.swift"; sourceTree = "<group>"; };
+		0C47018F1F54D78900AF2E03 /* RepRepPartyIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepRepPartyIconView.swift; sourceTree = "<group>"; };
 		0C47A88A1F53278300D74B31 /* UIColor+RepRepColours.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+RepRepColours.swift"; sourceTree = "<group>"; };
-		0C55E5CB1F489AEE00F908D1 /* RepTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepTableViewController.swift; sourceTree = "<group>"; };
+		0C55E5CB1F489AEE00F908D1 /* RepRepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepRepViewController.swift; sourceTree = "<group>"; };
 		0C55E5D01F48BA4D00F908D1 /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		0C55E5D41F4B300F00F908D1 /* ZipSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipSearchBar.swift; sourceTree = "<group>"; };
 		0C55E5D61F4CBB7000F908D1 /* EmptyStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
-		0CCD7F0E1F477CA800B72DA1 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIManager.swift; path = ../APIManager.swift; sourceTree = "<group>"; };
+		0C9E8EFA1F57034E00C7EEF8 /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		0C9E8EFC1F57347400C7EEF8 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		0CCD7F0E1F477CA800B72DA1 /* APIRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIRequestManager.swift; path = ../APIRequestManager.swift; sourceTree = "<group>"; };
 		0CCD7F0F1F477CA800B72DA1 /* Election.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Election.swift; path = ../Election.swift; sourceTree = "<group>"; };
-		0CCD7F111F477CA800B72DA1 /* RepDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepDetailsViewController.swift; path = ../RepDetailsViewController.swift; sourceTree = "<group>"; };
-		0CCD7F121F477CA800B72DA1 /* VoteAdminBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VoteAdminBody.swift; path = ../VoteAdminBody.swift; sourceTree = "<group>"; };
+		0CCD7F121F477CA800B72DA1 /* StateAdminBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StateAdminBody.swift; path = ../StateAdminBody.swift; sourceTree = "<group>"; };
 		0CCD7F131F477CA800B72DA1 /* VoterInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VoterInfo.swift; path = ../VoterInfo.swift; sourceTree = "<group>"; };
-		0CCD7F1A1F48804A00B72DA1 /* RepInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepInfo.swift; sourceTree = "<group>"; };
+		0CCD7F1A1F48804A00B72DA1 /* RepInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepInfoViewModel.swift; sourceTree = "<group>"; };
 		0CCD7F1B1F48804A00B72DA1 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		0CCD7F1C1F48804A00B72DA1 /* PollLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollLocation.swift; sourceTree = "<group>"; };
+		0CF9AEA21F584D6400461206 /* RepRepDefaultButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepRepDefaultButtonView.swift; sourceTree = "<group>"; };
+		0CF9AEA41F587F2C00461206 /* UIViewController+ShowAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ShowAlert.swift"; sourceTree = "<group>"; };
+		0CFADCAF1F55BCAC00A9F7E3 /* RepRepButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepRepButton.swift; sourceTree = "<group>"; };
+		0CFADCB11F55D79A00A9F7E3 /* UIImageView+ResizeImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+ResizeImage.swift"; sourceTree = "<group>"; };
+		0CFADCB31F55E8AA00A9F7E3 /* RepRepBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepRepBorderView.swift; sourceTree = "<group>"; };
+		0CFADCB51F55EF0B00A9F7E3 /* RepRepArticleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepRepArticleCollectionViewCell.swift; sourceTree = "<group>"; };
+		0CFADCB71F55F0D700A9F7E3 /* RepRepCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepRepCollectionView.swift; sourceTree = "<group>"; };
+		0CFADCB91F55F15900A9F7E3 /* RepRepCollectionViewDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepRepCollectionViewDriver.swift; sourceTree = "<group>"; };
+		0CFADCBB1F55FC3700A9F7E3 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		0CFADCBD1F55FC4D00A9F7E3 /* Government Official.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Government Official.swift"; sourceTree = "<group>"; };
+		0CFADCBF1F55FC6900A9F7E3 /* Office.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Office.swift; sourceTree = "<group>"; };
 		24F446992B4718142BC94D31 /* Pods_RepRepTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RepRepTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4796BEBBD78ADECF01EC4A98 /* Pods-RepRepUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RepRepUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RepRepUITests/Pods-RepRepUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A02ADB53D1F5ACCE3C1758F8 /* Pods_RepRep.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RepRep.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,18 +186,11 @@
 		0C31291C1F47780000B7CC0C /* RepRep */ = {
 			isa = PBXGroup;
 			children = (
-				0CCD7F0E1F477CA800B72DA1 /* APIManager.swift */,
+				0C9E8F021F573F0D00C7EEF8 /* State Managers */,
+				0C9E8F001F573EF900C7EEF8 /* ViewControllers */,
 				0C55E5CD1F48AA1C00F908D1 /* Models */,
-				0C55E5CB1F489AEE00F908D1 /* RepTableViewController.swift */,
-				0C55E5D41F4B300F00F908D1 /* ZipSearchBar.swift */,
-				0C47A88A1F53278300D74B31 /* UIColor+RepRepColours.swift */,
-				0C55E5D61F4CBB7000F908D1 /* EmptyStateView.swift */,
-				0C3BFD981F53517900248BF8 /* StarView.swift */,
-				0C3BFD961F533E6200248BF8 /* RepLabel.swift */,
-				0C31291D1F47780000B7CC0C /* AppDelegate.swift */,
-				0C3129241F47780000B7CC0C /* Assets.xcassets */,
-				0C3129261F47780000B7CC0C /* LaunchScreen.storyboard */,
-				0C3129291F47780000B7CC0C /* Info.plist */,
+				0C3BFD9E1F54885700248BF8 /* Views */,
+				0C9E8EFF1F573EE100C7EEF8 /* Supporting Files */,
 			);
 			path = RepRep;
 			sourceTree = "<group>";
@@ -174,19 +213,97 @@
 			path = RepRepUITests;
 			sourceTree = "<group>";
 		};
+		0C3BFD9E1F54885700248BF8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0C47018E1F54CD1200AF2E03 /* Main Views */,
+				0C55E5D41F4B300F00F908D1 /* ZipSearchBar.swift */,
+				0C4701861F54BE5300AF2E03 /* RepRepSectionHeaderConstructor.swift */,
+				0C3BFD961F533E6200248BF8 /* RepRepLabel.swift */,
+				0CFADCAF1F55BCAC00A9F7E3 /* RepRepButton.swift */,
+				0CFADCB31F55E8AA00A9F7E3 /* RepRepBorderView.swift */,
+				0C3BFD9F1F5488F300248BF8 /* RepRepContainerView.swift */,
+				0C3BFDA11F548C5600248BF8 /* RepRepActivityIndicatorView.swift */,
+				0CF9AEA21F584D6400461206 /* RepRepDefaultButtonView.swift */,
+				0C3BFDA51F54934100248BF8 /* RepRepTableViewCell.swift */,
+				0C47018F1F54D78900AF2E03 /* RepRepPartyIconView.swift */,
+				0CFADCB71F55F0D700A9F7E3 /* RepRepCollectionView.swift */,
+				0CFADCB51F55EF0B00A9F7E3 /* RepRepArticleCollectionViewCell.swift */,
+				0C3BFD981F53517900248BF8 /* StarView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		0C47018E1F54CD1200AF2E03 /* Main Views */ = {
+			isa = PBXGroup;
+			children = (
+				0C55E5D61F4CBB7000F908D1 /* EmptyStateView.swift */,
+				0C3BFD9C1F54884D00248BF8 /* LoadingStateView.swift */,
+				0C3BFDA31F54933200248BF8 /* RepRepTableView.swift */,
+				0C47018A1F54C56B00AF2E03 /* RepRepOfficialView.swift */,
+			);
+			name = "Main Views";
+			sourceTree = "<group>";
+		};
 		0C55E5CD1F48AA1C00F908D1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0CCD7F0F1F477CA800B72DA1 /* Election.swift */,
-				0CCD7F111F477CA800B72DA1 /* RepDetailsViewController.swift */,
+				0C9E8EFE1F573EBC00C7EEF8 /* Future Iterations Models */,
 				0C55E5D01F48BA4D00F908D1 /* Article.swift */,
-				0CCD7F121F477CA800B72DA1 /* VoteAdminBody.swift */,
-				0CCD7F131F477CA800B72DA1 /* VoterInfo.swift */,
-				0CCD7F1A1F48804A00B72DA1 /* RepInfo.swift */,
+				0CCD7F1A1F48804A00B72DA1 /* RepInfoViewModel.swift */,
+				0CFADCBF1F55FC6900A9F7E3 /* Office.swift */,
+				0CFADCBD1F55FC4D00A9F7E3 /* Government Official.swift */,
+				0CFADCBB1F55FC3700A9F7E3 /* Channel.swift */,
 				0CCD7F1B1F48804A00B72DA1 /* Address.swift */,
-				0CCD7F1C1F48804A00B72DA1 /* PollLocation.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		0C9E8EFE1F573EBC00C7EEF8 /* Future Iterations Models */ = {
+			isa = PBXGroup;
+			children = (
+				0CCD7F0F1F477CA800B72DA1 /* Election.swift */,
+				0CCD7F121F477CA800B72DA1 /* StateAdminBody.swift */,
+				0CCD7F1C1F48804A00B72DA1 /* PollLocation.swift */,
+				0CCD7F131F477CA800B72DA1 /* VoterInfo.swift */,
+			);
+			name = "Future Iterations Models";
+			sourceTree = "<group>";
+		};
+		0C9E8EFF1F573EE100C7EEF8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0C9E8EFA1F57034E00C7EEF8 /* UIConstants.swift */,
+				0C47A88A1F53278300D74B31 /* UIColor+RepRepColours.swift */,
+				0C47018C1F54C6A700AF2E03 /* ViewController+ConfigureMainView.swift */,
+				0CF9AEA41F587F2C00461206 /* UIViewController+ShowAlert.swift */,
+				0CFADCB11F55D79A00A9F7E3 /* UIImageView+ResizeImage.swift */,
+				0C3129241F47780000B7CC0C /* Assets.xcassets */,
+				0C3129261F47780000B7CC0C /* LaunchScreen.storyboard */,
+				0C3129291F47780000B7CC0C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0C9E8F001F573EF900C7EEF8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0C55E5CB1F489AEE00F908D1 /* RepRepViewController.swift */,
+				0C4701881F54C23D00AF2E03 /* RepRepDetailViewController.swift */,
+				0C9E8EFC1F57347400C7EEF8 /* WebViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		0C9E8F021F573F0D00C7EEF8 /* State Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0CCD7F0E1F477CA800B72DA1 /* APIRequestManager.swift */,
+				0C4701841F549F4F00AF2E03 /* RepRepTableViewDriver.swift */,
+				0CFADCB91F55F15900A9F7E3 /* RepRepCollectionViewDriver.swift */,
+				0C31291D1F47780000B7CC0C /* AppDelegate.swift */,
+			);
+			name = "State Managers";
 			sourceTree = "<group>";
 		};
 		62E3D4F6269003BE8A2B2627 /* Pods */ = {
@@ -495,22 +612,45 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C3BFD971F533E6200248BF8 /* RepLabel.swift in Sources */,
+				0C9E8EFD1F57347400C7EEF8 /* WebViewController.swift in Sources */,
+				0CFADCB41F55E8AA00A9F7E3 /* RepRepBorderView.swift in Sources */,
+				0C3BFD971F533E6200248BF8 /* RepRepLabel.swift in Sources */,
+				0C3BFDA41F54933200248BF8 /* RepRepTableView.swift in Sources */,
 				0C55E5D11F48BA4D00F908D1 /* Article.swift in Sources */,
-				0CCD7F171F477CA800B72DA1 /* RepDetailsViewController.swift in Sources */,
+				0C4701901F54D78900AF2E03 /* RepRepPartyIconView.swift in Sources */,
+				0C4701851F549F4F00AF2E03 /* RepRepTableViewDriver.swift in Sources */,
+				0C3BFDA21F548C5600248BF8 /* RepRepActivityIndicatorView.swift in Sources */,
+				0CF9AEA31F584D6400461206 /* RepRepDefaultButtonView.swift in Sources */,
+				0C4701891F54C23D00AF2E03 /* RepRepDetailViewController.swift in Sources */,
 				0C47A88B1F53278300D74B31 /* UIColor+RepRepColours.swift in Sources */,
-				0CCD7F181F477CA800B72DA1 /* VoteAdminBody.swift in Sources */,
+				0CFADCB81F55F0D700A9F7E3 /* RepRepCollectionView.swift in Sources */,
+				0C3BFD9D1F54884D00248BF8 /* LoadingStateView.swift in Sources */,
+				0C9E8EFB1F57034E00C7EEF8 /* UIConstants.swift in Sources */,
+				0CCD7F181F477CA800B72DA1 /* StateAdminBody.swift in Sources */,
+				0CFADCB01F55BCAC00A9F7E3 /* RepRepButton.swift in Sources */,
+				0CFADCBC1F55FC3700A9F7E3 /* Channel.swift in Sources */,
+				0C3BFDA01F5488F300248BF8 /* RepRepContainerView.swift in Sources */,
 				0CCD7F151F477CA800B72DA1 /* Election.swift in Sources */,
+				0C4701871F54BE5300AF2E03 /* RepRepSectionHeaderConstructor.swift in Sources */,
+				0CF9AEA51F587F2C00461206 /* UIViewController+ShowAlert.swift in Sources */,
+				0C47018D1F54C6A700AF2E03 /* ViewController+ConfigureMainView.swift in Sources */,
 				0CCD7F1E1F48804A00B72DA1 /* Address.swift in Sources */,
-				0CCD7F141F477CA800B72DA1 /* APIManager.swift in Sources */,
+				0CCD7F141F477CA800B72DA1 /* APIRequestManager.swift in Sources */,
 				0C55E5D71F4CBB7000F908D1 /* EmptyStateView.swift in Sources */,
+				0CFADCB61F55EF0B00A9F7E3 /* RepRepArticleCollectionViewCell.swift in Sources */,
+				0CFADCC01F55FC6900A9F7E3 /* Office.swift in Sources */,
 				0CCD7F191F477CA800B72DA1 /* VoterInfo.swift in Sources */,
 				0C55E5D51F4B300F00F908D1 /* ZipSearchBar.swift in Sources */,
-				0CCD7F1D1F48804A00B72DA1 /* RepInfo.swift in Sources */,
+				0CFADCBE1F55FC4D00A9F7E3 /* Government Official.swift in Sources */,
+				0CCD7F1D1F48804A00B72DA1 /* RepInfoViewModel.swift in Sources */,
 				0C31291E1F47780000B7CC0C /* AppDelegate.swift in Sources */,
 				0C3BFD991F53517900248BF8 /* StarView.swift in Sources */,
-				0C55E5CC1F489AEE00F908D1 /* RepTableViewController.swift in Sources */,
+				0C55E5CC1F489AEE00F908D1 /* RepRepViewController.swift in Sources */,
+				0C3BFDA61F54934100248BF8 /* RepRepTableViewCell.swift in Sources */,
 				0CCD7F1F1F48804A00B72DA1 /* PollLocation.swift in Sources */,
+				0CFADCBA1F55F15900A9F7E3 /* RepRepCollectionViewDriver.swift in Sources */,
+				0CFADCB21F55D79A00A9F7E3 /* UIImageView+ResizeImage.swift in Sources */,
+				0C47018B1F54C56B00AF2E03 /* RepRepOfficialView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

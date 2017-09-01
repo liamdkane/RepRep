@@ -18,7 +18,7 @@ class StateVoteAdminBody {
     let rulesURL: String?
     let ballotInfo: String?
     
-    init (name: String, infoURL: String, address: Address, registrationURL: String?, absenteeVotingInfo: String?, locationURL: String?, rulesURL: String?, ballotInfo: String?) {
+    init(name: String, infoURL: String, address: Address, registrationURL: String?, absenteeVotingInfo: String?, locationURL: String?, rulesURL: String?, ballotInfo: String?) {
         self.name = name
         self.infoURL = infoURL
         self.address = address
@@ -103,7 +103,7 @@ class ElectionOfficial {
     let faxNumber: String
     let email: String
     
-    init (name: String, title: String, phoneNumber: String, faxNumber: String, email: String) {
+    init(name: String, title: String, phoneNumber: String, faxNumber: String, email: String) {
         self.name = name
         self.title = title
         self.phoneNumber = phoneNumber

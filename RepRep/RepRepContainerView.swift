@@ -1,23 +1,23 @@
 //
-//  RepLabel.swift
+//  RepRepContainerView.swift
 //  RepRep
 //
-//  Created by Liam Kane on 8/27/17.
+//  Created by Liam Kane on 8/28/17.
 //  Copyright © 2017 RepresentativeReputation. All rights reserved.
 //
 
 import UIKit
 
-class RepLabel: UILabel {
-    
+class RepRepContainerView: UIView {
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        textAlignment = .center
-        numberOfLines = 0
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.repRed.cgColor
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
-
+    
 }
