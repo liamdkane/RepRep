@@ -28,7 +28,7 @@ class LoadingStateView: UIVisualEffectView {
     }
     
     private func configureConstraints() {
-        addSubview(containerView)
+        contentView.addSubview(containerView)
         containerView.snp.makeConstraints { (view) in
             view.leading.trailing.equalToSuperview().inset(UIConstants.outerBorderInset)
             view.centerY.equalToSuperview()
